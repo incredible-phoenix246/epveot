@@ -13,6 +13,7 @@ import { FaBars } from "react-icons/fa";
 import { useStateCtx } from "@/context/stateCtx";
 import * as Icon from "../Icons";
 import { NAV_LINKS } from "@/constants";
+import StaggeredDropDown from "./mobile";
 
 export const Navbar = () => {
   const { showMobileMenu, setShowMobileMenu } = useStateCtx();
@@ -29,9 +30,9 @@ export const Navbar = () => {
   return (
     <nav
       className={cn(
-        " max-[500px]:py-2 w-full justify-between items-center bg-brand-white  transition-colors duration-500",
+        " w-full justify-between items-center bg-brand-white  transition-colors duration-500",
         scrollHeight > 200
-          ? " fixed backdrop-blur-xl top-0 left-0  z-50 -translate-y-28 opacity-0 animate-slideDown bg-brand-white/90 py-2 border-b border-gray-200 shadow-md"
+          ? " fixed backdrop-blur-xl top-0 left-0  z-50 -translate-y-28 opacity-0 animate-slideDown bg-brand-white/90 border-b border-gray-200 shadow-md"
           : "sm:py-6 py-4",
         {
           "bg-brand-white/60 ": scrollHeight > 800 && scrollHeight < 4300,
@@ -108,6 +109,7 @@ export const Navbar = () => {
           Have Any Question?
         </Button>
       </div>
+      <StaggeredDropDown />
     </nav>
   );
 };
