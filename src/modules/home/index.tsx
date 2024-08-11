@@ -46,7 +46,7 @@ const WelcomeHeader = () => {
         <div className="flex gap-2.5 items-center min-h-[29px]">
           <Icon.HatIcon />
           <span className="self-stretch my-auto font-unica">
-            Welcome BlueCollar
+            Welcome EPVEOT
           </span>
         </div>
       </div>
