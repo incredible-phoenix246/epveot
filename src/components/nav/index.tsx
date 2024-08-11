@@ -6,17 +6,14 @@ import { cn } from "@/utils";
 import Image from "next/image";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
-import { usePathname, useSearchParams } from "next/navigation";
-import { ChartFail, HambergerMenu, Notification } from "iconsax-react";
-// import MobileNav from "./mobile";
-import { FaBars } from "react-icons/fa";
+import { useSearchParams } from "next/navigation";
+import { MotionConfig, motion } from "framer-motion";
 import { useStateCtx } from "@/context/stateCtx";
 import * as Icon from "../Icons";
 import { NAV_LINKS } from "@/constants";
 import StaggeredDropDown from "./mobile";
 
 export const Navbar = () => {
-  const { showMobileMenu, setShowMobileMenu } = useStateCtx();
   const searchParams = useSearchParams().get("path");
   const scrollHeight = useWindowHeight();
   const [isActive, setIsActive] = useState("");
@@ -50,13 +47,8 @@ export const Navbar = () => {
               className=""
             />
           </Link>
-          <div
-            tabIndex={0}
-            role="button"
-            className="lg:hidden text-2xl cursor-pointer"
-            onClick={() => setShowMobileMenu(true)}
-          >
-            <FaBars />
+          <div role="button" className="lg:hidden text-2xl cursor-pointer">
+            <NavButton />
           </div>
         </div>
         <div className="md:text-base text-xs font-semibold items-center justify-between md:gap-4 hidden md:flex max-h-[68px]">
@@ -112,4 +104,77 @@ export const Navbar = () => {
       <StaggeredDropDown />
     </nav>
   );
+};
+
+const NavButton = () => {
+  const { showMobileMenu, setShowMobileMenu } = useStateCtx();
+  return (
+    <MotionConfig
+      transition={{
+        duration: 0.5,
+        ease: "easeInOut",
+      }}
+    >
+      <motion.button
+        initial={false}
+        animate={showMobileMenu ? "open" : "closed"}
+        onClick={() => setShowMobileMenu((pv) => !pv)}
+        className="relative h-20 w-20 rounded-full bg-white/0 transition-colors hover:bg-white/20"
+      >
+        <motion.span
+          variants={VARIANTS.top}
+          className="absolute h-1 w-10 bg-white"
+          style={{ y: "-50%", left: "50%", x: "-50%", top: "35%" }}
+        />
+        <motion.span
+          variants={VARIANTS.middle}
+          className="absolute h-1 w-10 bg-white"
+          style={{ left: "50%", x: "-50%", top: "50%", y: "-50%" }}
+        />
+        <motion.span
+          variants={VARIANTS.bottom}
+          className="absolute h-1 w-5 bg-white"
+          style={{
+            x: "-50%",
+            y: "50%",
+            bottom: "35%",
+            left: "calc(50% + 10px)",
+          }}
+        />
+      </motion.button>
+    </MotionConfig>
+  );
+};
+
+const VARIANTS = {
+  top: {
+    open: {
+      rotate: ["0deg", "0deg", "45deg"],
+      top: ["35%", "50%", "50%"],
+    },
+    closed: {
+      rotate: ["45deg", "0deg", "0deg"],
+      top: ["50%", "50%", "35%"],
+    },
+  },
+  middle: {
+    open: {
+      rotate: ["0deg", "0deg", "-45deg"],
+    },
+    closed: {
+      rotate: ["-45deg", "0deg", "0deg"],
+    },
+  },
+  bottom: {
+    open: {
+      rotate: ["0deg", "0deg", "45deg"],
+      bottom: ["35%", "50%", "50%"],
+      left: "50%",
+    },
+    closed: {
+      rotate: ["45deg", "0deg", "0deg"],
+      bottom: ["50%", "50%", "35%"],
+      left: "calc(50% + 10px)",
+    },
+  },
 };
