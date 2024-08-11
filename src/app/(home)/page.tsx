@@ -1,11 +1,12 @@
 import React from "react";
-import { Hero, WelcomeSection } from "@/modules/home";
+import { Hero, WelcomeSection, ProfessionalServices } from "@/modules/home";
 
 const page = () => {
   return (
     <>
       <Hero />
       <WelcomeSection />
+      <ProfessionalServices />
     </>
   );
 };
