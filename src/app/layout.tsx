@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import StateContextProvider from "@/context/stateCtx";
+import { unica, raleway } from "@/fonts";
 import "./globals.scss";
 
 const inter = Inter({ subsets: ["latin"] });
@@ -18,7 +19,11 @@ export default function RootLayout({
   return (
     <html lang="en">
       <StateContextProvider>
-        <body className={inter.className}>{children}</body>
+        <body
+          className={`${raleway.className} ${unica.variable} bg-brand-white`}
+        >
+          {children}
+        </body>
       </StateContextProvider>
     </html>
   );

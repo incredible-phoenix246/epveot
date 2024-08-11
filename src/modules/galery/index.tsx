@@ -12,7 +12,7 @@ export const ParallaxScrollSecond = ({
   images: string[];
   className?: string;
 }) => {
-  const gridRef = useRef<any>(null);
+  const gridRef = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({
     container: gridRef,
     offset: ["start start", "end start"],
@@ -284,15 +284,6 @@ const gallery = [
 export const GalleryPage = () => {
   return (
     <>
-      <div className="container mt-5">
-        <div className="row">
-          <div className="col-md-12">
-            <h1 className="text-center text-xl md:text-3xl font-medium">
-              Gallery
-            </h1>
-          </div>
-        </div>
-      </div>
       <ParallaxScrollSecond images={gallery} />
     </>
   );
