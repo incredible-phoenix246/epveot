@@ -4,6 +4,7 @@ import {
   WelcomeSection,
   ProfessionalServices,
   ServicesSection,
+  WhyChooseUs,
 } from "@/modules/home";
 
 const page = () => {
@@ -13,6 +14,7 @@ const page = () => {
       <WelcomeSection />
       <ProfessionalServices />
       <ServicesSection />
+      <WhyChooseUs />
     </>
   );
 };

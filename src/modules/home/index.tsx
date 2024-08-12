@@ -43,7 +43,7 @@ const Hero = () => {
 };
 
 const WelcomeHeader = () => (
-  <header className="flex flex-col max-w-full text-blue-950 w-[515px]">
+  <header className="flex flex-col max-w-full text-brand-blue w-[515px]">
     <div className="flex flex-col justify-center self-start px-4 py-2 text-lg font-medium bg-zinc-100 min-h-[45px]">
       <div className="flex gap-2.5 items-center min-h-[29px]">
         <Icon.HatIcon />
@@ -111,7 +111,7 @@ const ServiceDetails = () => {
       <div className="flex flex-wrap gap-10 items-center min-h-[391px] max-md:max-w-full">
         <div className="flex flex-col self-stretch my-auto min-w-[240px] w-[562px] max-md:max-w-full">
           <div className="flex flex-col items-start max-w-full w-[562px]">
-            <div className="flex flex-col justify-center px-4 py-2 text-lg font-medium bg-zinc-100 min-h-[45px] text-blue-950">
+            <div className="flex flex-col justify-center px-4 py-2 text-lg font-medium bg-zinc-100 min-h-[45px] text-brand-blue">
               <div className="flex gap-2.5 items-center min-h-[29px]">
                 <Icon.HouseIcon />
                 <div className="self-stretch my-auto font-unica">
@@ -120,7 +120,7 @@ const ServiceDetails = () => {
               </div>
             </div>
             <div className="flex flex-col mt-4 w-full">
-              <h2 className="text-4xl font-extrabold text-blue-950">
+              <h2 className="text-4xl font-extrabold text-brand-blue">
                 Commercial
               </h2>
               <p className="mt-3.5 text-lg text-zinc-500 max-md:max-w-full">
@@ -216,7 +216,7 @@ const ProfessionalServices = () => {
     <section className="flex flex-col pb-36 max-md:pb-24">
       <div className="flex flex-col items-center px-20 pt-32 w-full bg-amber-400 max-md:px-5 max-md:pt-24 max-md:max-w-full">
         <div className="flex z-10 flex-col items-center mb-0 max-w-full w-[1199px] max-md:mb-2.5">
-          <div className="flex flex-col items-center max-w-full text-blue-950 w-[723px]">
+          <div className="flex flex-col items-center max-w-full text-brand-blue w-[723px]">
             <div className="flex flex-col items-center max-w-full w-[687px]">
               <h1 className="text-5xl font-extrabold max-md:max-w-full max-md:text-4xl">
                 Professional Main Services
@@ -231,8 +231,7 @@ const ProfessionalServices = () => {
               {services.map((service, index) => (
                 <ServiceCard
                   key={index}
-                  Icon={service.Icon}
-                  name={service.name}
+                  {...service}
                   isActive={service.name === activeService}
                   onClick={() => setActiveService(service.name)}
                 />
@@ -258,7 +257,7 @@ const ServicesCard = ({
   description: string;
 }) => {
   return (
-    <div className="flex flex-col grow shrink justify-center py-12 pr-9 pl-9 bg-blue-950 min-w-[240px] w-[306px] max-md:px-5">
+    <div className="flex flex-col grow shrink justify-center py-12 pr-9 pl-9 bg-brand-blue min-w-[240px] w-[306px] max-md:px-5">
       <div className="flex flex-col max-w-full w-[310px]">
         <div className="flex flex-col w-full max-md:items-center">
           <div className="object-contain w-12 aspect-square">
@@ -316,7 +315,7 @@ const servicess = [
   },
 ];
 
-const ServicesSection: React.FC = () => {
+const ServicesSection = () => {
   return (
     <section className="flex flex-col items-center w-full bg-brand-white container">
       <div className="flex flex-col items-center max-w-full w-[1199px]">
@@ -357,42 +356,28 @@ const ServicesSection: React.FC = () => {
   );
 };
 
-interface StatisticItemProps {
-  value: string;
-  label: string;
-}
-
-const StatisticItem: React.FC<StatisticItemProps> = ({ value, label }) => (
-  <div className="flex items-start mt-6">
-    <div className="flex flex-col w-24 font-extrabold text-center whitespace-nowrap text-blue-950">
-      <div className="px-7 py-4 bg-amber-400 max-md:px-5">{value}</div>
+const StatisticItem = ({ value, label }: { value: string; label: string }) => (
+  <div className="flex items-start mt-6 max-h-[65px] min-h-[65px] overflow-hidden">
+    <div className="flex flex-col w-24 font-extrabold max-w-[23%] text-center whitespace-nowrap text-brand-blue">
+      <div className="px-7 py-4 bg-brand-main max-md:px-5">{value}</div>
     </div>
-    <div className="flex flex-col justify-center px-6 py-4 font-bold text-white border border-white border-solid min-h-[65px] min-w-[240px] w-[304px] max-md:px-5">
-      <div className="max-w-full w-[260px] max-md:pr-5">{label}</div>
+    <div className="flex flex-col justify-center px-6 font-bold text-white border border-white border-solid min-h-[65px] min-w-[240px] w-[304px] max-md:px-5">
+      <div className="max-md:pr-5 max-md:text-xl">{label}</div>
     </div>
   </div>
 );
 
-interface ReasonItemProps {
-  icon: string;
-  title: string;
-  description: string;
-}
-
-const ReasonItem: React.FC<ReasonItemProps> = ({
-  icon,
+const ReasonItem = ({
   title,
   description,
+}: {
+  title: string;
+  description: string;
 }) => (
-  <div className="flex flex-wrap gap-3.5 items-start mt-10">
-    <img
-      loading="lazy"
-      src={icon}
-      alt=""
-      className="object-contain shrink-0 w-8 aspect-square"
-    />
+  <div className="flex flex-wrap justify-center gap-3.5 items-start mt-10 max-md:items-center max-md:text-center">
+    <Icon.CheckIvon />
     <div className="flex flex-col grow shrink min-w-[240px] w-[507px] max-md:max-w-full">
-      <div className="text-xl font-bold text-blue-950">{title}</div>
+      <div className="text-xl font-bold text-brand-blue">{title}</div>
       <div className="mt-1.5 text-lg text-zinc-500 max-md:max-w-full">
         {description}
       </div>
@@ -407,11 +392,11 @@ const statisticsData = [
   { value: "854+", label: "Happy Customers" },
 ];
 
-const Statistics: React.FC = () => (
-  <div className="flex relative flex-col justify-center px-28 py-44 mb-0 border border-black border-solid bg-blue-950 bg-opacity-70 max-md:px-5 max-md:py-24 max-md:mb-2.5 max-md:max-w-full">
-    <div className="flex flex-col w-full max-w-[400px]">
+const Statistics = () => (
+  <div className="flex relative flex-col justify-center px-5 mb-0 border border-black border-solid bg-brand-blue bg-opacity-70 py-[20px]">
+    <div className="flex flex-col w-full max-w-[350px]">
       {statisticsData.map((item, index) => (
-        <StatisticItem key={index} value={item.value} label={item.label} />
+        <StatisticItem key={index} {...item} />
       ))}
     </div>
   </div>
@@ -419,66 +404,57 @@ const Statistics: React.FC = () => (
 
 const reasonsData = [
   {
-    icon: "https://cdn.builder.io/api/v1/image/assets/TEMP/204611d454aa17c76a40a96171c36badb02f0556e4ca5fc3898c6cc22c530351?placeholderIfAbsent=true&apiKey=af97e94b909e4cdbb531b36fb1b19598",
     title: "35 Years Experiance",
     description:
       "Pellentesque vehicula eros neque, maximus mattis est sagittis Nulla facilisi. In sed pretium",
   },
   {
-    icon: "https://cdn.builder.io/api/v1/image/assets/TEMP/204611d454aa17c76a40a96171c36badb02f0556e4ca5fc3898c6cc22c530351?placeholderIfAbsent=true&apiKey=af97e94b909e4cdbb531b36fb1b19598",
     title: "Excellencee Certificate",
     description:
       "Pellentesque vehicula eros neque, maximus mattis est sagittis Nulla facilisi. In sed pretium",
   },
   {
-    icon: "https://cdn.builder.io/api/v1/image/assets/TEMP/204611d454aa17c76a40a96171c36badb02f0556e4ca5fc3898c6cc22c530351?placeholderIfAbsent=true&apiKey=af97e94b909e4cdbb531b36fb1b19598",
     title: "Affordable Price",
     description:
       "Pellentesque vehicula eros neque, maximus mattis est sagittis Nulla facilisi. In sed pretium",
   },
 ];
 
-const Reasons: React.FC = () => (
-  <div className="flex flex-col max-w-full w-[643px]">
-    <div className="flex flex-col w-full text-blue-950">
-      <div className="flex flex-col justify-center self-start px-4 py-2 text-lg font-medium bg-zinc-100 min-h-[45px]">
-        <div className="flex gap-2.5 items-center min-h-[29px]">
-          <img
-            loading="lazy"
-            src="https://cdn.builder.io/api/v1/image/assets/TEMP/e0b9e3cfe0fea376577eb032f3dbce66fad7fe9615b0879d9fa4f6022784e70b?placeholderIfAbsent=true&apiKey=af97e94b909e4cdbb531b36fb1b19598"
-            alt=""
-            className="object-contain shrink-0 self-stretch my-auto aspect-square w-[22px]"
-          />
+const Reasons = () => (
+  <div className="flex flex-col max-w-full w-[643px] max-md:items-center max-md:text-center">
+    <div className="flex flex-col w-full text-brand-blue">
+      <div className="flex flex-col justify-center md:self-start px-4 py-2 text-lg font-medium bg-brand-white min-h-[45px]">
+        <div className="flex gap-2.5 items-center max-md:justify-center min-h-[29px]">
+          <div className="object-contain  my-auto aspect-square w-[22px]">
+            <Icon.EditIcon />
+          </div>
           <div className="self-stretch my-auto">Why Choose Us</div>
         </div>
       </div>
-      <h2 className="mt-2.5 text-5xl font-extrabold max-md:max-w-full max-md:text-4xl">
+      <h2 className="mt-2.5 text-5xl max-md:text-xl font-extrabold max-md:max-w-full">
         Few Reasons Why You <br /> Should Choose Us
       </h2>
     </div>
-    <div className="flex flex-col mt-11 max-w-full w-[558px] max-md:mt-10">
+    <div className="flex flex-col max-w-full w-[558px]">
       {reasonsData.map((reason, index) => (
-        <ReasonItem
-          key={index}
-          icon={reason.icon}
-          title={reason.title}
-          description={reason.description}
-        />
+        <ReasonItem key={index} {...reason} />
       ))}
     </div>
   </div>
 );
 
-const MyComponent: React.FC = () => {
+const WhyChooseUs = () => {
   return (
-    <main className="flex flex-wrap gap-10 items-center">
-      <section className="flex flex-col grow shrink self-stretch my-auto text-2xl min-w-[240px] w-[676px] max-md:max-w-full">
-        <div className="flex relative flex-col justify-center px-20 py-28 w-full min-h-[921px] max-md:px-5 max-md:py-24 max-md:max-w-full">
-          <img
+    <main className="flex max-md:flex-col gap-10 items-center justify-center h-full container py-[20px] md:py-[40px]">
+      <section className="flex flex-col self-stretch my-auto text-2xl min-w-[240px] w-[676px] max-md:max-w-full">
+        <div className="flex relative flex-col justify-center items-center  w-full">
+          <Image
+            src="/statimg.png"
+            alt="statimg"
+            className="object-cover absolute inset-0 size-full max-h-[500px] w-full"
             loading="lazy"
-            src="https://cdn.builder.io/api/v1/image/assets/TEMP/73cc37233203a7a3a12cde346087fddccc05ffb7ee530d9f6c55daa2e82ff945?placeholderIfAbsent=true&apiKey=af97e94b909e4cdbb531b36fb1b19598"
-            alt=""
-            className="object-cover absolute inset-0 size-full"
+            height={845}
+            width={921}
           />
           <Statistics />
         </div>
@@ -490,4 +466,10 @@ const MyComponent: React.FC = () => {
   );
 };
 
-export { Hero, WelcomeSection, ProfessionalServices, ServicesSection };
+export {
+  Hero,
+  WelcomeSection,
+  ProfessionalServices,
+  ServicesSection,
+  WhyChooseUs,
+};

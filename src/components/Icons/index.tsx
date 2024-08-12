@@ -393,3 +393,22 @@ export const HomeIcon = () => (
     </defs>
   </svg>
 );
+
+export const CheckIvon = () => (
+  <svg
+    width="32"
+    height="32"
+    viewBox="0 0 32 32"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <circle cx="16" cy="16" r="16" fill="#FFB342" />
+    <path
+      d="M23 11L13.9 22L10 17.875"
+      stroke="#1C2752"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    />
+  </svg>
+);
