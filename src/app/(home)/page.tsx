@@ -1,5 +1,10 @@
 import React from "react";
-import { Hero, WelcomeSection, ProfessionalServices } from "@/modules/home";
+import {
+  Hero,
+  WelcomeSection,
+  ProfessionalServices,
+  ServicesSection,
+} from "@/modules/home";
 
 const page = () => {
   return (
@@ -7,6 +12,7 @@ const page = () => {
       <Hero />
       <WelcomeSection />
       <ProfessionalServices />
+      <ServicesSection />
     </>
   );
 };

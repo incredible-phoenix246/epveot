@@ -1,4 +1,6 @@
-import React, { FC } from "react";
+"use client";
+
+import React, { FC, useState } from "react";
 import * as Icon from "@/components/Icons";
 import Image from "next/image";
 import Link from "next/link";
@@ -160,23 +162,33 @@ const ServiceCard = ({
   Icon,
   name,
   isActive,
+  onClick,
 }: {
   Icon: FC;
   name: string;
   isActive?: boolean;
+  onClick: () => void;
 }) => {
   return (
     <div className="flex flex-col grow shrink w-[177px]">
       <div
         className={cn(
-          "flex gap-2 px-8 py-4 max-md:px-5",
+          "flex gap-2 px-8 py-4 max-md:px-5 cursor-pointer",
           isActive ? "bg-brand-white" : "border border-solid border-brand-blue"
         )}
+        onClick={onClick}
       >
         <div className="shrink-0 w-9 aspect-square">
           <Icon />
         </div>
-        <div className="grow shrink my-auto">{name}</div>
+        <div
+          className={cn(
+            "grow shrink my-auto",
+            isActive ? "text-brand-main" : "text-brand-blue"
+          )}
+        >
+          {name}
+        </div>
       </div>
     </div>
   );
@@ -186,7 +198,6 @@ const services = [
   {
     Icon: Icon.CommericalIcon,
     name: "Commercial",
-    isActive: true,
   },
   {
     Icon: Icon.ResidentialIcon,
@@ -199,6 +210,8 @@ const services = [
 ];
 
 const ProfessionalServices = () => {
+  const [activeService, setActiveService] = useState<string>("Commercial");
+
   return (
     <section className="flex flex-col pb-36 max-md:pb-24">
       <div className="flex flex-col items-center px-20 pt-32 w-full bg-amber-400 max-md:px-5 max-md:pt-24 max-md:max-w-full">
@@ -216,15 +229,265 @@ const ProfessionalServices = () => {
             </div>
             <div className="flex flex-wrap gap-8 justify-center items-start mt-8 w-full text-xl font-semibold whitespace-nowrap">
               {services.map((service, index) => (
-                <ServiceCard key={index} {...service} />
+                <ServiceCard
+                  key={index}
+                  Icon={service.Icon}
+                  name={service.name}
+                  isActive={service.name === activeService}
+                  onClick={() => setActiveService(service.name)}
+                />
               ))}
             </div>
           </div>
-          <ServiceDetails />
+          <ServiceDetails
+          // activeService={activeService}
+          />
         </div>
       </div>
     </section>
   );
 };
 
-export { Hero, WelcomeSection, ProfessionalServices };
+const ServicesCard = ({
+  Icon,
+  title,
+  description,
+}: {
+  Icon: FC;
+  title: string;
+  description: string;
+}) => {
+  return (
+    <div className="flex flex-col grow shrink justify-center py-12 pr-9 pl-9 bg-blue-950 min-w-[240px] w-[306px] max-md:px-5">
+      <div className="flex flex-col max-w-full w-[310px]">
+        <div className="flex flex-col w-full max-md:items-center">
+          <div className="object-contain w-12 aspect-square">
+            <Icon />
+          </div>
+          <div className="flex flex-col mt-5 w-full max-md:text-center">
+            <h3 className="text-2xl font-bold text-brand-main">{title}</h3>
+            <p className="mt-3 text-lg text-neutral-300">{description}</p>
+          </div>
+        </div>
+        <button className="mt-8 text-lg font-semibold text-white">
+          Read More
+        </button>
+      </div>
+    </div>
+  );
+};
+
+const servicess = [
+  {
+    Icon: Icon.AirconIcon,
+    title: "Air condition service",
+    description:
+      "Sagittis Nulla facilisi. In sed pretium metus. Proin pretium Turna sit amet tincidunt.",
+  },
+  {
+    Icon: Icon.SubstationIcon,
+    title: "Electrical installation",
+    description:
+      "Sagittis Nulla facilisi. In sed pretium metus. Proin pretium Turna sit amet tincidunt.",
+  },
+  {
+    Icon: Icon.ServIcon,
+    title: "General Builder",
+    description:
+      "Sagittis Nulla facilisi. In sed pretium metus. Proin pretium Turna sit amet tincidunt.",
+  },
+  {
+    Icon: Icon.LockIcon,
+    title: "Security System",
+    description:
+      "Sagittis Nulla facilisi. In sed pretium metus. Proin pretium Turna sit amet tincidunt.",
+  },
+  {
+    Icon: Icon.MaintainaceIcon,
+    title: "Service & maintenance",
+    description:
+      "Sagittis Nulla facilisi. In sed pretium metus. Proin pretium Turna sit amet tincidunt.",
+  },
+  {
+    Icon: Icon.HomeIcon,
+    title: "House Extensions",
+    description:
+      "Sagittis Nulla facilisi. In sed pretium metus. Proin pretium Turna sit amet tincidunt.",
+  },
+];
+
+const ServicesSection: React.FC = () => {
+  return (
+    <section className="flex flex-col items-center w-full bg-brand-white container">
+      <div className="flex flex-col items-center max-w-full w-[1199px]">
+        <div className="flex flex-col items-center max-w-full w-[687px]">
+          <div className="flex flex-col items-center max-w-full text-brand-blue w-[276px]">
+            <div className="flex flex-col justify-center px-4 py-2 text-lg font-medium bg-white min-h-[45px]">
+              <div className="flex gap-2.5 items-center min-h-[29px]">
+                <div className="object-contain shrink-0 self-stretch my-auto aspect-square w-[21px]">
+                  <Icon.EditIcon />
+                </div>
+                <span className="self-stretch my-auto">Our Services</span>
+              </div>
+            </div>
+            <h2 className="mt-2.5 text-5xl font-extrabold text-center max-md:text-4xl font-unica">
+              Our Services
+            </h2>
+          </div>
+          <p className="mt-5 text-lg text-center text-zinc-500 max-md:max-w-full">
+            Pellentesque vehicula eros neque, maximus mattis est sagittis Nulla
+            facilisi. In sed pretium metus. Proin pretium id urna sit amet
+            tincidunt.
+          </p>
+        </div>
+        <div className="flex flex-col items-center mt-9 w-full max-w-[1199px] max-md:max-w-full">
+          <div className="flex flex-wrap gap-6 justify-center items-start w-full">
+            {servicess.slice(0, 3).map((service, index) => (
+              <ServicesCard key={index} {...service} />
+            ))}
+          </div>
+          <div className="flex flex-wrap gap-6 justify-center items-start mt-7 w-full">
+            {servicess.slice(3).map((service, index) => (
+              <ServicesCard key={index + 3} {...service} />
+            ))}
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+};
+
+interface StatisticItemProps {
+  value: string;
+  label: string;
+}
+
+const StatisticItem: React.FC<StatisticItemProps> = ({ value, label }) => (
+  <div className="flex items-start mt-6">
+    <div className="flex flex-col w-24 font-extrabold text-center whitespace-nowrap text-blue-950">
+      <div className="px-7 py-4 bg-amber-400 max-md:px-5">{value}</div>
+    </div>
+    <div className="flex flex-col justify-center px-6 py-4 font-bold text-white border border-white border-solid min-h-[65px] min-w-[240px] w-[304px] max-md:px-5">
+      <div className="max-w-full w-[260px] max-md:pr-5">{label}</div>
+    </div>
+  </div>
+);
+
+interface ReasonItemProps {
+  icon: string;
+  title: string;
+  description: string;
+}
+
+const ReasonItem: React.FC<ReasonItemProps> = ({
+  icon,
+  title,
+  description,
+}) => (
+  <div className="flex flex-wrap gap-3.5 items-start mt-10">
+    <img
+      loading="lazy"
+      src={icon}
+      alt=""
+      className="object-contain shrink-0 w-8 aspect-square"
+    />
+    <div className="flex flex-col grow shrink min-w-[240px] w-[507px] max-md:max-w-full">
+      <div className="text-xl font-bold text-blue-950">{title}</div>
+      <div className="mt-1.5 text-lg text-zinc-500 max-md:max-w-full">
+        {description}
+      </div>
+    </div>
+  </div>
+);
+
+const statisticsData = [
+  { value: "3956", label: "Project Done" },
+  { value: "851", label: "People Working" },
+  { value: "265", label: "Business Partner" },
+  { value: "854+", label: "Happy Customers" },
+];
+
+const Statistics: React.FC = () => (
+  <div className="flex relative flex-col justify-center px-28 py-44 mb-0 border border-black border-solid bg-blue-950 bg-opacity-70 max-md:px-5 max-md:py-24 max-md:mb-2.5 max-md:max-w-full">
+    <div className="flex flex-col w-full max-w-[400px]">
+      {statisticsData.map((item, index) => (
+        <StatisticItem key={index} value={item.value} label={item.label} />
+      ))}
+    </div>
+  </div>
+);
+
+const reasonsData = [
+  {
+    icon: "https://cdn.builder.io/api/v1/image/assets/TEMP/204611d454aa17c76a40a96171c36badb02f0556e4ca5fc3898c6cc22c530351?placeholderIfAbsent=true&apiKey=af97e94b909e4cdbb531b36fb1b19598",
+    title: "35 Years Experiance",
+    description:
+      "Pellentesque vehicula eros neque, maximus mattis est sagittis Nulla facilisi. In sed pretium",
+  },
+  {
+    icon: "https://cdn.builder.io/api/v1/image/assets/TEMP/204611d454aa17c76a40a96171c36badb02f0556e4ca5fc3898c6cc22c530351?placeholderIfAbsent=true&apiKey=af97e94b909e4cdbb531b36fb1b19598",
+    title: "Excellencee Certificate",
+    description:
+      "Pellentesque vehicula eros neque, maximus mattis est sagittis Nulla facilisi. In sed pretium",
+  },
+  {
+    icon: "https://cdn.builder.io/api/v1/image/assets/TEMP/204611d454aa17c76a40a96171c36badb02f0556e4ca5fc3898c6cc22c530351?placeholderIfAbsent=true&apiKey=af97e94b909e4cdbb531b36fb1b19598",
+    title: "Affordable Price",
+    description:
+      "Pellentesque vehicula eros neque, maximus mattis est sagittis Nulla facilisi. In sed pretium",
+  },
+];
+
+const Reasons: React.FC = () => (
+  <div className="flex flex-col max-w-full w-[643px]">
+    <div className="flex flex-col w-full text-blue-950">
+      <div className="flex flex-col justify-center self-start px-4 py-2 text-lg font-medium bg-zinc-100 min-h-[45px]">
+        <div className="flex gap-2.5 items-center min-h-[29px]">
+          <img
+            loading="lazy"
+            src="https://cdn.builder.io/api/v1/image/assets/TEMP/e0b9e3cfe0fea376577eb032f3dbce66fad7fe9615b0879d9fa4f6022784e70b?placeholderIfAbsent=true&apiKey=af97e94b909e4cdbb531b36fb1b19598"
+            alt=""
+            className="object-contain shrink-0 self-stretch my-auto aspect-square w-[22px]"
+          />
+          <div className="self-stretch my-auto">Why Choose Us</div>
+        </div>
+      </div>
+      <h2 className="mt-2.5 text-5xl font-extrabold max-md:max-w-full max-md:text-4xl">
+        Few Reasons Why You <br /> Should Choose Us
+      </h2>
+    </div>
+    <div className="flex flex-col mt-11 max-w-full w-[558px] max-md:mt-10">
+      {reasonsData.map((reason, index) => (
+        <ReasonItem
+          key={index}
+          icon={reason.icon}
+          title={reason.title}
+          description={reason.description}
+        />
+      ))}
+    </div>
+  </div>
+);
+
+const MyComponent: React.FC = () => {
+  return (
+    <main className="flex flex-wrap gap-10 items-center">
+      <section className="flex flex-col grow shrink self-stretch my-auto text-2xl min-w-[240px] w-[676px] max-md:max-w-full">
+        <div className="flex relative flex-col justify-center px-20 py-28 w-full min-h-[921px] max-md:px-5 max-md:py-24 max-md:max-w-full">
+          <img
+            loading="lazy"
+            src="https://cdn.builder.io/api/v1/image/assets/TEMP/73cc37233203a7a3a12cde346087fddccc05ffb7ee530d9f6c55daa2e82ff945?placeholderIfAbsent=true&apiKey=af97e94b909e4cdbb531b36fb1b19598"
+            alt=""
+            className="object-cover absolute inset-0 size-full"
+          />
+          <Statistics />
+        </div>
+      </section>
+      <section className="flex flex-col grow shrink items-start self-stretch pb-11 my-auto min-w-[240px] w-[836px] max-md:max-w-full">
+        <Reasons />
+      </section>
+    </main>
+  );
+};
+
+export { Hero, WelcomeSection, ProfessionalServices, ServicesSection };
