@@ -11,7 +11,7 @@ import { MotionConfig, motion } from "framer-motion";
 import { useStateCtx } from "@/context/stateCtx";
 import * as Icon from "../Icons";
 import { NAV_LINKS } from "@/constants";
-import StaggeredDropDown from "./mobile";
+import { StaggeredDropDown } from "./mobile";
 
 export const Navbar = () => {
   const searchParams = useSearchParams().get("path");

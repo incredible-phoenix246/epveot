@@ -1,10 +1,4 @@
-import {
-  FiEdit,
-  FiChevronDown,
-  FiTrash,
-  FiShare,
-  FiPlusSquare,
-} from "react-icons/fi";
+import { FiEdit, FiTrash, FiShare, FiPlusSquare } from "react-icons/fi";
 import { motion } from "framer-motion";
 import { Dispatch, SetStateAction, useState } from "react";
 import { IconType } from "react-icons";
@@ -89,12 +83,10 @@ const Option = ({
       {/* <motion.span variants={actionIconVariants}>
         <Icon />
       </motion.span> */}
-      <span>{text}</span>
+      <span className="capitalize">{text}</span>
     </MotionLink>
   );
 };
-
-export default StaggeredDropDown;
 
 const wrapperVariants = {
   open: {
