@@ -70,17 +70,16 @@ const WelcomeSection = () => {
         <div className="flex flex-col max-w-full w-[600px]">
           <WelcomeHeader />
           <p className="mt-5 text-lg text-zinc-500 max-md:max-w-full">
-            Pellentesque vehicula eros neque, maximus mattis est sagittis Nulla
-            facilisi. In sed pretium metus. Proin pretium id urna sit amet
-            tincidunt. Interdum et malesuada.
+            Our company offers reliable service and maintenance for a variety of
+            systems and facilities. We provide regular inspections, preventative
+            maintenance
             <br />
             <br />
-            In pulvinar viverra diam, nec rutrum mauris maximus non. Aenean sed
-            quam tristique, facilisis est ac, interdum velit.
+            and prompt repairs to ensure optimal performance and longevity of
+            your systems,
           </p>
         </div>
         <div className="flex flex-wrap gap-10 items-center mt-10 max-w-full w-[534px]">
-          {/* <ExperienceBox /> */}
           <FeatureList />
         </div>
       </div>
@@ -89,23 +88,44 @@ const WelcomeSection = () => {
 };
 
 const features = [
-  "Sed varius ipsum lacus",
-  "Pulvinar tortor dignissim sit amet.",
-  "Quisque tristique diam quis placerat",
-  "Aliquam id ante suscipi fringilla.",
+  "We are focused on delivering solutions that will have a long-term impact on our client's success or well-being.",
+  "We're  dedicated to providing services or products that contribute to our client's.",
+  "part of our responsibility is commitment to forward-thinking and creating value that extends beyond immediate needs",
 ];
 
 const FeatureList = () => (
   <ul className="flex flex-col grow shrink self-stretch my-auto text-lg min-w-[240px] text-zinc-500 w-[284px]">
     {features.map((feature, index) => (
-      <li key={index} className={index > 0 ? "mt-4" : ""}>
+      <li key={index} className={cn(index > 0 ? "mt-4" : "")}>
         - {feature}
       </li>
     ))}
   </ul>
 );
 
-const ServiceDetails = () => {
+const ServiceDetails = ({ activeService }: { activeService: string }) => {
+  const serviceContent: {
+    [key: string]: { title: string; description: string };
+  } = {
+    Commercial: {
+      title: "Commercial",
+      description:
+        "Our company provides a comprehensive range of civil engineering services for commercial projects. These include site development, structural design, project management, transportation planning, environmental consulting, and construction oversight. We also specialize in infrastructure design, including roads, bridges, and utilities, ensuring that all our projects meet regulatory standards and are completed on time and within budget.",
+    },
+    Residential: {
+      title: "Residential",
+      description:
+        "Our company offers a wide range of civil engineering services for residential projects. These include site planning and development, grading and drainage design, structural engineering for homes, utility design, and construction management. We ensure that all residential projects are designed to meet local building codes, are environmentally sustainable, and are completed on time and within budget. We also provide maintenance services, installations, and project management to ensure all aspects of your project are handled with expertise and care. Whether it's a new build, renovation, or ongoing maintenance, we deliver high-quality results tailored to your needs.",
+    },
+    Industrial: {
+      title: "Industrial",
+      description:
+        "Our company provides specialized civil engineering services tailored for industrial projects. This includes comprehensive site development, structural engineering, and facility design for manufacturing plants, warehouses, and other industrial facilities. We also offer both interior and exterior design services, maintenance, and installations, ensuring that all aspects of your industrial project are handled efficiently. Our expertise ensures that your facility is not only functional and durable but also meets all safety and regulatory standards.",
+    },
+  };
+
+  const { title, description } = serviceContent[activeService];
+
   return (
     <div className="flex flex-col justify-center px-16 py-14 mt-10 bg-white min-h-[509px] shadow-[0px_20px_38px_rgba(216,216,216,0.25)] max-md:px-5 max-md:max-w-full">
       <div className="flex flex-wrap gap-10 items-center min-h-[391px] max-md:max-w-full">
@@ -115,36 +135,24 @@ const ServiceDetails = () => {
               <div className="flex gap-2.5 items-center min-h-[29px]">
                 <Icon.HouseIcon />
                 <div className="self-stretch my-auto font-unica">
-                  Based on Commercial
+                  Based on {title}
                 </div>
               </div>
             </div>
             <div className="flex flex-col mt-4 w-full">
               <h2 className="text-4xl font-extrabold text-brand-blue">
-                Commercial
+                {title}
               </h2>
               <p className="mt-3.5 text-lg text-zinc-500 max-md:max-w-full">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                incididunt ut labore et dolore magna aliqua. Ut enim ad
-                minimquis nostrud exercitation ullamco laboris nisi ut aliquip
-                ex ea
-                <br />
-                commodo consequat.
-                <br />
-                <br />
-                Duis aute irure dolor in reprehenderit in voluptate velit esse
-                cillum dolore eu fugiat nulla pariatur.ullamco laboris nisi ut
-                aliquip ex ea
-                <br />
-                commodo consequat.
+                {description}
               </p>
             </div>
           </div>
+
           <Button className="gap-2.5 self-start px-11 pt-5 pb-5 mt-8 text-xl font-semibold">
             Read More
           </Button>
         </div>
-
         <Image
           src="/serv.png"
           alt="serv"
@@ -172,10 +180,9 @@ const ServiceCard = ({
   return (
     <div className="flex flex-col grow shrink w-[177px]">
       <div
-        className={cn(
-          "flex gap-2 px-8 py-4 max-md:px-5 cursor-pointer",
+        className={`flex gap-2 px-8 py-4 max-md:px-5 cursor-pointer ${
           isActive ? "bg-brand-white" : "border border-solid border-brand-blue"
-        )}
+        }`}
         onClick={onClick}
       >
         <div className="shrink-0 w-9 aspect-square">
@@ -238,9 +245,7 @@ const ProfessionalServices = () => {
               ))}
             </div>
           </div>
-          <ServiceDetails
-          // activeService={activeService}
-          />
+          <ServiceDetails activeService={activeService} />
         </div>
       </div>
     </section>
@@ -281,37 +286,37 @@ const servicess = [
     Icon: Icon.AirconIcon,
     title: "Air condition service",
     description:
-      "Sagittis Nulla facilisi. In sed pretium metus. Proin pretium Turna sit amet tincidunt.",
+      "Our company offers comprehensive air-conditioning services, including installation, maintenance, and repair. We provide tailored solutions to ensure optimal comfort and efficiency for both residential and commercial spaces. Our experienced technicians work with a range of systems, from central air to split units, ensuring high performance and reliability. We are committed to delivering top-notch service and support to keep your environment cool and comfortable throughout the year.",
   },
   {
     Icon: Icon.SubstationIcon,
     title: "Electrical installation",
     description:
-      "Sagittis Nulla facilisi. In sed pretium metus. Proin pretium Turna sit amet tincidunt.",
+      "Our company provides expert electrical installation services, including the setup of wiring, lighting, and electrical systems for residential, commercial, and industrial projects. We ensure that all installations meet the highest safety standards and regulatory requirements. Our experienced electricians handle everything from system design and planning to installation and testing, delivering reliable and efficient solutions to power your space effectively and safely.",
   },
   {
     Icon: Icon.ServIcon,
     title: "General Builder",
     description:
-      "Sagittis Nulla facilisi. In sed pretium metus. Proin pretium Turna sit amet tincidunt.",
+      "Our company offers a full range of general building services, including construction, renovation, and remodeling for residential, commercial, and industrial projects. We handle all aspects of building projects, from initial design and planning to construction and final finishes. Our team is skilled in managing complex projects, ensuring high-quality craftsmanship, adherence to building codes, and timely completion. Whether you need new construction, upgrades, or maintenance, we provide comprehensive solutions to meet your building needs.",
   },
   {
     Icon: Icon.LockIcon,
     title: "Security System",
     description:
-      "Sagittis Nulla facilisi. In sed pretium metus. Proin pretium Turna sit amet tincidunt.",
+      "Our company provides comprehensive security system services, including the design, installation, and maintenance of advanced security solutions. We specialize in integrating state-of-the-art technology such as surveillance cameras, alarm systems, access control systems, and monitoring solutions to enhance the safety and security of residential, commercial, and industrial properties. Our team ensures that your security needs are met with customized solutions that offer peace of mind and reliable protection..",
   },
   {
     Icon: Icon.MaintainaceIcon,
     title: "Service & maintenance",
     description:
-      "Sagittis Nulla facilisi. In sed pretium metus. Proin pretium Turna sit amet tincidunt.",
+      "Our company offers reliable service and maintenance for a variety of systems and facilities. We provide regular inspections, preventative maintenance, and prompt repairs to ensure optimal performance and longevity of your systems, including HVAC, electrical, plumbing, and structural components. Our skilled team is dedicated to addressing issues efficiently, minimizing downtime, and keeping your property in excellent condition, all while adhering to the highest standards of quality and safety",
   },
   {
     Icon: Icon.HomeIcon,
     title: "House Extensions",
     description:
-      "Sagittis Nulla facilisi. In sed pretium metus. Proin pretium Turna sit amet tincidunt.",
+      "Our company specializes in house extensions, offering a range of services to expand and enhance your living space. We handle everything from design and planning to construction and finishing touches. Our team works closely with you to understand your needs and vision, ensuring that the extension seamlessly integrates with your existing home. Whether you're adding extra rooms, expanding your kitchen, or creating a new living area, we deliver high-quality craftsmanship and attention to detail to enhance your home's functionality and value.",
   },
 ];
 
