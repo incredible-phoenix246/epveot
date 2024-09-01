@@ -6,14 +6,14 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { Button } from '@/components/ui/button'
 import { cn, shrinkString } from '@/utils'
-import { Swiper, SwiperSlide } from "swiper/react";
+import { Swiper, SwiperSlide } from 'swiper/react'
 import {
   A11y,
   Autoplay,
   Navigation,
   Pagination,
   Scrollbar,
-} from "swiper/modules";
+} from 'swiper/modules'
 
 const Hero = () => {
   return (
@@ -463,7 +463,7 @@ const Reasons = () => (
 
 const WhyChooseUs = () => {
   return (
-    <main className="flex max-md:flex-col gap-10 items-center justify-center h-full container py-[20px] md:py-[40px]">
+    <main className="flex max-md:flex-col gap-10 items-center justify-center h-full container py-[20px] md:py-[40px] overflow-hidden">
       <section className="flex flex-col self-stretch my-auto text-2xl min-w-[240px] w-[676px] max-md:max-w-full">
         <div className="flex relative flex-col justify-center items-center  w-full">
           <Image
@@ -493,14 +493,14 @@ const WorkCard = ({
   name: string
   tags: string[]
 }) => (
-  <div className="max-w-[320px] bg-white p-[21px] flex flex-col gap-4 items-center justify-center">
-    <Image src={image} alt={name} width={300} height={350} />
+  <div className="w-[330px] md:w-[400px] bg-white p-[21px] flex flex-col gap-4 items-center justify-center">
+    <Image src={image} alt={name} width={350} height={500} />
     <h3 className="text-[25px] font-unica ">{name}</h3>
     <p className="text-[18px] text-gray-700">
       {tags.map((t) => (
         <span
           key={t}
-          className="inline-block px-2 text-sm font-semibold text-gray-700 bg-gray-100 rounded-full"
+          className="inline-block px-2 text-sm font-semibold text-gray-700"
         >
           {t}
         </span>
@@ -508,6 +508,49 @@ const WorkCard = ({
     </p>
   </div>
 )
+
+const workCardsData = [
+  {
+    image: '/image.png',
+    name: 'Electrical & Maintenance',
+    tags: ['Instalation', 'Electric'],
+  },
+  {
+    image: '/image.png',
+    name: 'Interior/Exterior Services',
+    tags: ['House', 'Office'],
+  },
+  {
+    image: '/image.png',
+    name: 'Electrical installation',
+    tags: ['Instalation '],
+  },
+  {
+    image: '/image.png',
+    name: 'Portfolio Website',
+    tags: ['Portfolio', 'Gatsby'],
+  },
+  {
+    image: '/image.png',
+    name: 'Project Management Tool',
+    tags: ['Project Management', 'React'],
+  },
+  {
+    image: '/image.png',
+    name: 'Chat Application',
+    tags: ['Real-time', 'Chat'],
+  },
+  {
+    image: '/image.png',
+    name: 'Fitness Tracker App',
+    tags: ['Fitness', 'Mobile'],
+  },
+  {
+    image: '/image.png',
+    name: 'Online Learning Platform',
+    tags: ['Learning', 'React'],
+  },
+]
 
 const RecentWorks = () => {
   return (
@@ -529,39 +572,43 @@ const RecentWorks = () => {
               </h2>
             </div>
           </div>
-          <div className="mt-14 flex items-center justify-between lg:mt-20">
-                      <Swiper
-            modules={[Navigation, Pagination, Scrollbar, A11y, Autoplay]}
-            slidesPerView={1}
-            spaceBetween={20}
-            navigation={{
-              nextEl: ".custom-next",
-              prevEl: ".custom-prev",
-            }}
-            // autoplay={{
-            //   delay: 1000,
-            //   disableOnInteraction: false,
-            // }}
-            loop={true}
-            // speed={1000}
-            breakpoints={{
-              450: {
-                slidesPerView: 1,
-                spaceBetween: 20,
-              },
-              650: {
-                slidesPerView: 2,
-                spaceBetween: 20,
-              },
-              1024: {
-                slidesPerView: 3,
-                spaceBetween: 20,
-              },
-            }}
-            data-testid="swiper"
+          <div className="my-14 flex items-center justify-between lg:my-20 w-full gap-2">
+            <Swiper
+              modules={[Pagination, Scrollbar, A11y, Autoplay]}
+              slidesPerView={1}
+              spaceBetween={20}
+              autoplay={{
+                delay: 1000,
+                disableOnInteraction: false,
+              }}
+              loop={true}
+              speed={1000}
+              breakpoints={{
+                450: {
+                  slidesPerView: 1,
+                  spaceBetween: 20,
+                },
+                650: {
+                  slidesPerView: 2,
+                  spaceBetween: 20,
+                },
+                1024: {
+                  slidesPerView: 3,
+                  spaceBetween: 20,
+                },
+              }}
+              data-testid="swiper"
             >
-              
-          </Swiper>
+              {workCardsData.map((card, index) => (
+                <SwiperSlide key={index} data-testid="testimonial-card">
+                  <WorkCard
+                    image={'/Image.png'}
+                    name={card.name}
+                    tags={card.tags}
+                  />
+                </SwiperSlide>
+              ))}
+            </Swiper>
           </div>
         </div>
       </div>
