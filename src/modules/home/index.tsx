@@ -14,6 +14,7 @@ import {
   Pagination,
   Scrollbar,
 } from 'swiper/modules'
+import useMediaQuery from '@/hooks/use-media-query'
 
 const Hero = () => {
   return (
@@ -267,13 +268,18 @@ const ServicesCard = ({
   Icon,
   title,
   description,
+  key,
 }: {
+  key: number
   Icon: FC
   title: string
   description: string
 }) => {
   return (
-    <div className="flex flex-col grow shrink justify-center py-12 pr-9 pl-9 bg-brand-blue min-w-[240px] w-[306px] max-md:px-5">
+    <div
+      key={key}
+      className="flex flex-col grow shrink justify-center py-12 pr-9 pl-9 bg-brand-blue min-w-[240px] w-[306px] max-md:px-5"
+    >
       <div className="flex flex-col max-w-full w-[310px]">
         <div className="flex flex-col w-full max-md:items-center">
           <div className="object-contain w-12 aspect-square">
@@ -616,6 +622,170 @@ const RecentWorks = () => {
   )
 }
 
+const TestominialCard = ({
+  name,
+  image = '/test.png',
+  loc = 'Kano, Nigeria',
+  test,
+}: {
+  name: string
+  image?: string
+  loc?: string
+  test: string
+}) => {
+  const { isMobile } = useMediaQuery()
+  return (
+    <article className="flex flex-col justify-center p-2 md:p-10 mt-6 w-full bg-white border border-solid border-zinc-300 max-md:px-5 max-md:max-w-full">
+      <div className="flex flex-col w-[320px] md:w-[503px]">
+        <div className="flex flex-col w-full">
+          <div className="flex flex-col w-full max-md:max-w-full">
+            <div className="flex flex-wrap gap-3 md:gap-10 items-center w-full">
+              <div className="flex grow shrink gap-3 items-center self-stretch my-auto md:w-48">
+                <div
+                  className={cn(
+                    'object-contain shrink-0 self-stretch my-auto aspect-square',
+                    isMobile ? ' w-[40px]' : ' w-[70px]'
+                  )}
+                >
+                  <Image
+                    src={image}
+                    alt={name}
+                    width={isMobile ? 40 : 70}
+                    height={isMobile ? 40 : 70}
+                  />
+                </div>
+                <div
+                  className={cn(
+                    'flex flex-col self-stretch my-auto',
+                    isMobile ? 'w-[120px]' : 'w-[200px]'
+                  )}
+                >
+                  <h3 className="text-xl max-md:text-base font-bold text-blue-950 line-clamp-1">
+                    {name}
+                  </h3>
+                  <p className="mt-1.5 text-base text-zinc-500 line-clamp-2">
+                    {loc}
+                  </p>
+                </div>
+              </div>
+              <div
+                className={cn(
+                  'object-contain shrink-0 self-stretch my-auto aspect-square',
+                  isMobile ? 'w-[35px]' : '  w-[55px]'
+                )}
+              >
+                <Icon.Quote />
+              </div>
+            </div>
+            <hr className="mt-5 w-full min-h-0 border border-solid border-zinc-300" />
+          </div>
+          <blockquote className="mt-4 max-md:text-sm text-2xl tracking-wider leading-8 text-zinc-500 max-md:max-w-full">
+            <span className="italic">{test}</span>
+          </blockquote>
+        </div>
+      </div>
+    </article>
+  )
+}
+
+const testimonials = [
+  {
+    name: 'Dr. Shide Sunday',
+    loc: 'Nigeria Police Academy Wudil - Kano',
+    test: 'I know Engineer Earnest through a 500 capacity Ultra-Modern project he handled for Nigeria Police Academy Chaplaincy. Earnest began and completed the project in less than 2 months. Apart from the supervisory role he played as the engineer that managed the project; he also practically participated in almost all the work (Masonry, Ironwork, Carpentry, Painting, and Electrical work). He practically joined the workforce mostly to achieve his usual daily targets when he was not comfortable with the labor speed. He is young and worked across day and night without any sign of incapacitation. I therefore recommend him for your building projects, irrespective of the standard and the time frame required to accomplish the project.',
+  },
+  {
+    name: 'Rev. (Dr.) Emmanuel Bernard',
+    loc: 'Resident Pastor, ASPC English Assembly, Kano',
+    test: 'I have had the pleasure of knowing Engineer Earnest through his exceptional work on a 500-capacity ultra-modern project for the Nigeria Police Academy Chaplaincy. His ability to begin and complete this significant project in under two months is a testament to his dedication and expertise. Beyond his role as the supervising engineer, Earnest actively participated in various aspects of the construction, including masonry, ironwork, carpentry, painting, and electrical work. He frequently joined the labor force to ensure daily targets were met, especially when the pace of work was not up to his high standards. Earnest’s commitment is further demonstrated by his relentless work ethic, often working day and night without showing any signs of fatigue or incapacity. I strongly recommend Engineer Earnest for any building projects, regardless of the required standards or time constraints.',
+  },
+  {
+    name: 'Pastor Olushola Ibidun',
+    loc: 'Ag. Chaplain Protestant Chaplaincy, Nigeria Police Academy, Wudil - Kano',
+    test: 'Engineer Ernest did his youth service with the Works department of the Nigeria Police Academy. In the course of his service, he became very noticeable to me as the Acting Chaplain of the Protestant Chaplaincy due to his commitment to Chapel activities. It was not difficult therefore to reckon with his suitability when the need to include a 500-seater capacity auditorium to the existing one arose. We sought for and got his release from the Director of works in Police Academy to help us with the design and construction of the 500 capacity auditorium. His proficiency saw the auditorium delivered within two months from design to completion. Engineer Ernest motivated all the workers at every stage through his direct participation, thereby eliminating any possible delay. With this experience, I can confidently vouch for his competency, motivational ability, and strength for great accomplishment in his chosen career of building engineering. Whosoever engages Engineer Ernest has got the right choice for his/her building construction.',
+  },
+]
+
+const TestimonialSection = () => {
+  return (
+    <section className="flex max-md:flex-col w-full items-center justify-center">
+      <section className="flex flex-col max-w-[581px] items-center justify-center">
+        <header className="flex flex-col w-full max-md:max-w-full">
+          <div className="flex flex-col max-w-full text-blue-950 w-[272px]">
+            <div className="flex flex-col items-center max-w-full text-brand-blue w-[276px]">
+              <div className="flex flex-col justify-center px-4 py-2 text-lg font-medium bg-[#F4F4F4] min-h-[45px]">
+                <div className="flex gap-2.5 items-center min-h-[29px]">
+                  <div className="object-contain shrink-0 self-stretch my-auto aspect-square w-[21px]">
+                    <Icon.EditIcon />
+                  </div>
+                  <span className="self-stretch my-auto">Our Testimonial</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <h2 className="mt-2.5 text-5xl font-semibold text-start max-md:text-4xl font-unica">
+            Customers Says
+          </h2>
+        </header>
+        <div className="mt-10 flex w-full items-center justify-center h-full max-md:max-w-[350px]">
+          <Swiper
+            modules={[Pagination, Scrollbar, A11y, Autoplay]}
+            spaceBetween={1}
+            slidesPerView={1}
+            autoplay={{
+              delay: 2000,
+              disableOnInteraction: false,
+            }}
+            loop={true}
+            speed={3000}
+            data-testid="swiper"
+          >
+            {testimonials.map((testimonial, index) => (
+              <SwiperSlide key={index}>
+                <TestominialCard
+                  key={index}
+                  name={testimonial.name}
+                  loc={testimonial.loc}
+                  test={testimonial.test}
+                />
+              </SwiperSlide>
+            ))}
+          </Swiper>
+        </div>
+        <section className="flex flex-col justify-center px-11 py-12 mt-8 w-full bg-amber-400 text-blue-950 max-md:px-5 max-md:max-w-full">
+          <div className="flex flex-col items-start w-full max-md:max-w-full">
+            <div className="flex flex-col justify-center px-4 py-2 text-lg font-medium bg-zinc-100 min-h-[45px]">
+              <div className="flex gap-2.5 items-center min-h-[29px]">
+                <div className="object-contain shrink-0 self-stretch my-auto aspect-square w-[21px]">
+                  <Icon.EditIcon />
+                </div>
+                <span className="self-stretch my-auto">Any Question</span>
+              </div>
+            </div>
+            <div className="flex flex-col self-stretch mt-6 w-full">
+              <h2 className="text-2xl font-extrabold max-md:max-w-full">
+                99.9% Customer Satisfaction Based
+              </h2>
+              <p className="mt-3 text-lg max-md:max-w-full">
+                If you have any questions or need help contact <br /> with our
+                team, or call
+              </p>
+            </div>
+            <div className="flex gap-2.5 items-center mt-6 max-w-full text-3xl font-extrabold leading-loose text-white w-[334px]">
+              <div className="object-contain shrink-0 self-stretch my-auto aspect-square w-[42px]">
+                <Icon.Phone />
+              </div>
+              <a href="tel:+234123456789" className="self-stretch my-auto">
+                (234) 123 456 7890
+              </a>
+            </div>
+          </div>
+        </section>
+      </section>
+    </section>
+  )
+}
+
 export {
   Hero,
   WelcomeSection,
@@ -623,4 +793,5 @@ export {
   ServicesSection,
   WhyChooseUs,
   RecentWorks,
+  TestimonialSection,
 }

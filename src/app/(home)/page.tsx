@@ -6,6 +6,7 @@ import {
   ServicesSection,
   WhyChooseUs,
   RecentWorks,
+  TestimonialSection,
 } from '@/modules/home'
 
 const page = () => {
@@ -17,6 +18,7 @@ const page = () => {
       <ServicesSection />
       <WhyChooseUs />
       <RecentWorks />
+      <TestimonialSection />
     </>
   )
 }
