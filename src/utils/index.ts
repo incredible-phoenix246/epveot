@@ -12,7 +12,7 @@ export function cn(...inputs: ClassValue[]) {
  * @param {number} len
  * @returns {string}
  */
-const shrinkString = ({ str, len }: { str?: string; len: number }): string => {
+export const shrinkString = ({ str, len }: { str?: string; len: number }): string => {
   if (!str) return "";
   if (str.length > len) {
     return str.substring(0, len) + "...";

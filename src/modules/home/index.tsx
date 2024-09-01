@@ -5,7 +5,7 @@ import * as Icon from "@/components/Icons";
 import Image from "next/image";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
-import { cn } from "@/utils";
+import { cn, shrinkString } from "@/utils";
 
 const Hero = () => {
   return (
@@ -167,22 +167,24 @@ const ServiceDetails = ({ activeService }: { activeService: string }) => {
 };
 
 const ServiceCard = ({
-  Icon,
-  name,
-  isActive,
-  onClick,
-}: {
-  Icon: FC;
-  name: string;
-  isActive?: boolean;
-  onClick: () => void;
+                       Icon,
+                       name,
+                       isActive,
+                       onClick,
+                       key
+                     }: {
+  Icon: FC,
+  name: string,
+  isActive?: boolean,
+  onClick: () => void,
+  key?: number
 }) => {
   return (
     <div className="flex flex-col grow shrink w-[177px]">
       <div
-        className={`flex gap-2 px-8 py-4 max-md:px-5 cursor-pointer ${
-          isActive ? "bg-brand-white" : "border border-solid border-brand-blue"
-        }`}
+          className={cn("flex gap-2 px-8 py-4 max-md:px-5 cursor-pointer",
+              isActive ? "bg-brand-white" : "border border-solid border-brand-blue"
+              )}
         onClick={onClick}
       >
         <div className="shrink-0 w-9 aspect-square">
@@ -270,7 +272,7 @@ const ServicesCard = ({
           </div>
           <div className="flex flex-col mt-5 w-full max-md:text-center">
             <h3 className="text-2xl font-bold text-brand-main">{title}</h3>
-            <p className="mt-3 text-lg text-neutral-300">{description}</p>
+            <p className="mt-3 text-lg text-neutral-300">{shrinkString({len: 200, str:description})}</p>
           </div>
         </div>
         <button className="mt-8 text-lg font-semibold text-white">
