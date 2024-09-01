@@ -1,8 +1,8 @@
-import { type ClassValue, clsx } from "clsx";
-import { twMerge } from "tailwind-merge";
+import { type ClassValue, clsx } from 'clsx'
+import { twMerge } from 'tailwind-merge'
 
 export function cn(...inputs: ClassValue[]) {
-  return twMerge(clsx(inputs));
+  return twMerge(clsx(inputs))
 }
 
 /**
@@ -12,10 +12,16 @@ export function cn(...inputs: ClassValue[]) {
  * @param {number} len
  * @returns {string}
  */
-export const shrinkString = ({ str, len }: { str?: string; len: number }): string => {
-  if (!str) return "";
+export const shrinkString = ({
+  str,
+  len,
+}: {
+  str?: string
+  len: number
+}): string => {
+  if (!str) return ''
   if (str.length > len) {
-    return str.substring(0, len) + "...";
+    return str.substring(0, len) + '...'
   }
-  return str;
-};
+  return str
+}

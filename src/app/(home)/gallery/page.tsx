@@ -1,8 +1,8 @@
-import React from "react";
-import { GalleryPage } from "@/modules/galery";
+import React from 'react'
+import { GalleryPage } from '@/modules/galery'
 
 const page = () => {
-  return <GalleryPage />;
-};
+  return <GalleryPage />
+}
 
-export default page;
+export default page

@@ -12,13 +12,13 @@ function SkeletonNavbar() {
 
       <div className="animate-pulse [animation-delay:0.1s] bg-black/20 h-full w-full max-w-[70px] lg:max-w-[200px] rounded-md lg:rounded-full" />
     </div>
-  );
+  )
 }
 
 function CardSkelt() {
   return (
     <div className="flex justify-between items-center gap-x-2 w-[350px] h-[625px] rounded-2xl bg-black/20" />
-  );
+  )
 }
 
-export { SkeletonNavbar, CardSkelt };
+export { SkeletonNavbar, CardSkelt }

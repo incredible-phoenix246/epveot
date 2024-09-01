@@ -1,33 +1,33 @@
-import { FiEdit, FiTrash, FiShare, FiPlusSquare } from "react-icons/fi";
-import { motion } from "framer-motion";
-import { Dispatch, SetStateAction, useState } from "react";
-import { IconType } from "react-icons";
-import Link from "next/link";
-import { cn } from "@/utils";
-import { useStateCtx } from "@/context/stateCtx";
+import { FiEdit, FiTrash, FiShare, FiPlusSquare } from 'react-icons/fi'
+import { motion } from 'framer-motion'
+import { Dispatch, SetStateAction, useState } from 'react'
+import { IconType } from 'react-icons'
+import Link from 'next/link'
+import { cn } from '@/utils'
+import { useStateCtx } from '@/context/stateCtx'
 
 export const StaggeredDropDown = () => {
-  const { showMobileMenu, setShowMobileMenu } = useStateCtx();
+  const { showMobileMenu, setShowMobileMenu } = useStateCtx()
 
   return (
     <>
       <div
         className={cn(
-          "fixed left-0 top-0 z-[99] min-h-screen w-full bg-black/5 transition-all md:hidden",
+          'fixed left-0 top-0 z-[99] min-h-screen w-full bg-black/5 transition-all md:hidden',
           showMobileMenu
-            ? "opacity-100 duration-500"
-            : "pointer-events-none opacity-0 duration-300"
+            ? 'opacity-100 duration-500'
+            : 'pointer-events-none opacity-0 duration-300'
         )}
         onClick={() => setShowMobileMenu(false)}
       />
       <motion.div
-        animate={showMobileMenu ? "open" : "closed"}
+        animate={showMobileMenu ? 'open' : 'closed'}
         className="relative z-[500]"
       >
         <motion.ul
           initial={wrapperVariants.closed}
           variants={wrapperVariants}
-          style={{ originY: "top", translateX: "-50%" }}
+          style={{ originY: 'top', translateX: '-50%' }}
           className="flex flex-col gap-2 p-2 rounded-lg bg-white shadow-xl absolute top-[0] left-[80%] w-32 overflow-hidden"
         >
           <Option
@@ -57,10 +57,10 @@ export const StaggeredDropDown = () => {
         </motion.ul>
       </motion.div>
     </>
-  );
-};
+  )
+}
 
-const MotionLink = motion(Link);
+const MotionLink = motion(Link)
 
 const Option = ({
   text,
@@ -68,10 +68,10 @@ const Option = ({
   setShowMobileMenu,
   href,
 }: {
-  text: string;
-  Icon: IconType;
-  setShowMobileMenu: Dispatch<SetStateAction<boolean>>;
-  href: string;
+  text: string
+  Icon: IconType
+  setShowMobileMenu: Dispatch<SetStateAction<boolean>>
+  href: string
 }) => {
   return (
     <MotionLink
@@ -85,49 +85,49 @@ const Option = ({
       </motion.span> */}
       <span className="capitalize">{text}</span>
     </MotionLink>
-  );
-};
+  )
+}
 
 const wrapperVariants = {
   open: {
     scaleY: 1,
     transition: {
-      when: "beforeChildren",
+      when: 'beforeChildren',
       staggerChildren: 0.1,
     },
   },
   closed: {
     scaleY: 0,
     transition: {
-      when: "afterChildren",
+      when: 'afterChildren',
       staggerChildren: 0.1,
     },
   },
-};
+}
 
 const iconVariants = {
   open: { rotate: 180 },
   closed: { rotate: 0 },
-};
+}
 
 const itemVariants = {
   open: {
     opacity: 1,
     y: 0,
     transition: {
-      when: "beforeChildren",
+      when: 'beforeChildren',
     },
   },
   closed: {
     opacity: 0,
     y: -15,
     transition: {
-      when: "afterChildren",
+      when: 'afterChildren',
     },
   },
-};
+}
 
 const actionIconVariants = {
   open: { scale: 1, y: 0 },
   closed: { scale: 0, y: -7 },
-};
+}

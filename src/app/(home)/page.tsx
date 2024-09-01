@@ -1,11 +1,12 @@
-import React from "react";
+import React from 'react'
 import {
   Hero,
   WelcomeSection,
   ProfessionalServices,
   ServicesSection,
   WhyChooseUs,
-} from "@/modules/home";
+  RecentWorks,
+} from '@/modules/home'
 
 const page = () => {
   return (
@@ -15,8 +16,9 @@ const page = () => {
       <ProfessionalServices />
       <ServicesSection />
       <WhyChooseUs />
+      <RecentWorks />
     </>
-  );
-};
+  )
+}
 
-export default page;
+export default page

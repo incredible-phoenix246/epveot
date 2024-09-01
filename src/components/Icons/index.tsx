@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react'
 
 export const MailIcon = () => (
   <svg
@@ -24,7 +24,7 @@ export const MailIcon = () => (
       strokeLinejoin="round"
     />
   </svg>
-);
+)
 
 export const PhoneIcon = () => (
   <svg
@@ -42,7 +42,7 @@ export const PhoneIcon = () => (
       strokeMiterlimit="10"
     />
   </svg>
-);
+)
 
 export const SettingsIcon = () => (
   <svg
@@ -57,7 +57,7 @@ export const SettingsIcon = () => (
       fill="#FFB342"
     />
   </svg>
-);
+)
 
 export const HatIcon = () => (
   <svg
@@ -80,7 +80,7 @@ export const HatIcon = () => (
       fill="#FFB342"
     />
   </svg>
-);
+)
 
 export const CommericalIcon = () => (
   <svg
@@ -109,7 +109,7 @@ export const CommericalIcon = () => (
       />
     </defs>
   </svg>
-);
+)
 
 export const HouseIcon = () => (
   <svg
@@ -138,7 +138,7 @@ export const HouseIcon = () => (
       />
     </defs>
   </svg>
-);
+)
 
 export const IndustrialIcon = () => (
   <svg
@@ -167,7 +167,7 @@ export const IndustrialIcon = () => (
       />
     </defs>
   </svg>
-);
+)
 
 export const ResidentialIcon = () => (
   <svg
@@ -196,7 +196,7 @@ export const ResidentialIcon = () => (
       />
     </defs>
   </svg>
-);
+)
 
 export const EditIcon = () => (
   <svg
@@ -218,7 +218,7 @@ export const EditIcon = () => (
       fill="#FFB342"
     />
   </svg>
-);
+)
 
 export const AirconIcon = () => (
   <svg
@@ -247,7 +247,7 @@ export const AirconIcon = () => (
       />
     </defs>
   </svg>
-);
+)
 
 export const SubstationIcon = () => (
   <svg
@@ -276,7 +276,7 @@ export const SubstationIcon = () => (
       />
     </defs>
   </svg>
-);
+)
 
 export const ServIcon = () => (
   <svg
@@ -305,7 +305,7 @@ export const ServIcon = () => (
       />
     </defs>
   </svg>
-);
+)
 
 export const LockIcon = () => (
   <svg
@@ -334,7 +334,7 @@ export const LockIcon = () => (
       />
     </defs>
   </svg>
-);
+)
 
 export const MaintainaceIcon = () => (
   <svg
@@ -363,7 +363,7 @@ export const MaintainaceIcon = () => (
       />
     </defs>
   </svg>
-);
+)
 
 export const HomeIcon = () => (
   <svg
@@ -392,7 +392,7 @@ export const HomeIcon = () => (
       />
     </defs>
   </svg>
-);
+)
 
 export const CheckIvon = () => (
   <svg
@@ -411,4 +411,4 @@ export const CheckIvon = () => (
       strokeLinejoin="round"
     />
   </svg>
-);
+)

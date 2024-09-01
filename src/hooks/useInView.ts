@@ -1,45 +1,45 @@
-"use client";
+'use client'
 
-import { useEffect, useState, RefObject } from "react";
+import { useEffect, useState, RefObject } from 'react'
 
 interface UseInViewProps {
-  ref: RefObject<HTMLElement>;
-  once?: boolean;
-  isFrames?: boolean;
+  ref: RefObject<HTMLElement>
+  once?: boolean
+  isFrames?: boolean
 }
 
 const useInView = ({ ref, once = true, isFrames = false }: UseInViewProps) => {
-  const [hasAnimated, setHasAnimated] = useState(false);
-  const [isViewing, setIsViewing] = useState(false);
+  const [hasAnimated, setHasAnimated] = useState(false)
+  const [isViewing, setIsViewing] = useState(false)
   useEffect(() => {
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (once) {
           if (entry.isIntersecting && !hasAnimated) {
-            setHasAnimated(true);
+            setHasAnimated(true)
           }
-          return;
+          return
         }
         if (entry && entry) {
-          setIsViewing(entry.isIntersecting);
-          return;
+          setIsViewing(entry.isIntersecting)
+          return
         }
       },
       {
         threshold: isFrames ? 0.8 : undefined,
       }
-    );
+    )
 
-    const currentRef = ref.current;
+    const currentRef = ref.current
     if (currentRef) {
-      observer.observe(currentRef);
+      observer.observe(currentRef)
       return () => {
-        observer.unobserve(currentRef);
-      };
+        observer.unobserve(currentRef)
+      }
     }
-  }, [ref, hasAnimated, once, isFrames]);
+  }, [ref, hasAnimated, once, isFrames])
 
-  return once ? hasAnimated : isViewing;
-};
+  return once ? hasAnimated : isViewing
+}
 
-export default useInView;
+export default useInView
