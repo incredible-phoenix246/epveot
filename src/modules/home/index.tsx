@@ -418,7 +418,7 @@ const statisticsData = [
 
 const Statistics = () => (
   <div className="flex relative flex-col justify-center px-5 mb-0 border border-black border-solid bg-brand-blue bg-opacity-70 py-[20px]">
-    <div className="flex flex-col w-full max-w-[350px]">
+    <div className="flex flex-col w-full max-w-[320px]">
       {statisticsData.map((item, index) => (
         <StatisticItem key={index} {...item} />
       ))}
@@ -636,14 +636,14 @@ const TestominialCard = ({
   const { isMobile } = useMediaQuery()
   return (
     <article className="flex flex-col justify-center p-2 md:p-10 mt-6 w-full bg-white border border-solid border-zinc-300 max-md:px-5 max-md:max-w-full">
-      <div className="flex flex-col w-[320px] md:w-[503px]">
+      <div className="flex flex-col w-[300px] md:w-[503px]">
         <div className="flex flex-col w-full">
-          <div className="flex flex-col w-full max-md:max-w-full">
-            <div className="flex flex-wrap gap-3 md:gap-10 items-center w-full">
-              <div className="flex grow shrink gap-3 items-center self-stretch my-auto md:w-48">
+          <div className="flex flex-col w-full">
+            <div className="flex items-center justify-between w-full">
+              <div className="flex gap-2 items-center">
                 <div
                   className={cn(
-                    'object-contain shrink-0 self-stretch my-auto aspect-square',
+                    'object-contain my-auto aspect-square',
                     isMobile ? ' w-[40px]' : ' w-[70px]'
                   )}
                 >
@@ -656,22 +656,22 @@ const TestominialCard = ({
                 </div>
                 <div
                   className={cn(
-                    'flex flex-col self-stretch my-auto',
-                    isMobile ? 'w-[120px]' : 'w-[200px]'
+                    'flex flex-col my-auto',
+                    isMobile ? 'w-[170px]' : 'w-[200px]'
                   )}
                 >
                   <h3 className="text-xl max-md:text-base font-bold text-blue-950 line-clamp-1">
                     {name}
                   </h3>
-                  <p className="mt-1.5 text-base text-zinc-500 line-clamp-2">
+                  <p className="mt-1 text-base text-zinc-500 line-clamp-2">
                     {loc}
                   </p>
                 </div>
               </div>
               <div
                 className={cn(
-                  'object-contain shrink-0 self-stretch my-auto aspect-square',
-                  isMobile ? 'w-[35px]' : '  w-[55px]'
+                  'object-contain my-auto aspect-square',
+                  isMobile ? 'w-[35px]' : 'w-[55px]'
                 )}
               >
                 <Icon.Quote />
@@ -679,7 +679,7 @@ const TestominialCard = ({
             </div>
             <hr className="mt-5 w-full min-h-0 border border-solid border-zinc-300" />
           </div>
-          <blockquote className="mt-4 max-md:text-sm text-2xl tracking-wider leading-8 text-zinc-500 max-md:max-w-full">
+          <blockquote className="mt-4 max-md:text-sm text-base tracking-wider leading-8 text-zinc-500 max-md:max-w-full">
             <span className="italic">{test}</span>
           </blockquote>
         </div>
@@ -727,7 +727,7 @@ const TestimonialSection = () => {
             Customers Says
           </h2>
         </header>
-        <div className="mt-10 flex w-full items-center justify-center h-full max-md:max-w-[350px]">
+        <div className="mt-2 flex w-full items-center justify-center h-full max-md:max-w-[350px]">
           <Swiper
             modules={[Pagination, Scrollbar, A11y, Autoplay]}
             spaceBetween={1}
