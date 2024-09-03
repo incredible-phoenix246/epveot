@@ -51,7 +51,7 @@ const Hero = () => {
   )
 }
 
-const WelcomeHeader = () => (
+export const WelcomeHeader = () => (
   <header className="flex flex-col max-w-full text-brand-blue w-[515px]">
     <div className="flex flex-col justify-center self-start px-4 py-2 text-lg font-medium bg-zinc-100 min-h-[45px]">
       <div className="flex gap-2.5 items-center min-h-[29px]">
@@ -710,9 +710,9 @@ const TestimonialSection = () => {
   return (
     <section className="flex max-md:flex-col w-full items-center justify-center">
       <section className="flex flex-col max-w-[581px] items-center justify-center">
-        <header className="flex flex-col w-full max-md:max-w-full">
-          <div className="flex flex-col max-w-full text-blue-950 w-[272px]">
-            <div className="flex flex-col items-center max-w-full text-brand-blue w-[276px]">
+        <header className="flex p-3  flex-col w-full items-start">
+          <div className="flex flex-col text-blue-950">
+            <div className="flex flex-col text-brand-blue">
               <div className="flex flex-col justify-center px-4 py-2 text-lg font-medium bg-[#F4F4F4] min-h-[45px]">
                 <div className="flex gap-2.5 items-center min-h-[29px]">
                   <div className="object-contain shrink-0 self-stretch my-auto aspect-square w-[21px]">

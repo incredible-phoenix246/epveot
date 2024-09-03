@@ -28,7 +28,7 @@ export const StaggeredDropDown = () => {
           initial={wrapperVariants.closed}
           variants={wrapperVariants}
           style={{ originY: 'top', translateX: '-50%' }}
-          className="flex flex-col gap-2 p-2 rounded-lg bg-white shadow-xl absolute top-[0] left-[80%] w-32 overflow-hidden"
+          className="flex flex-col gap-2 p-2 rounded-lg bg-brand-white shadow-xl absolute top-[0] left-[80%] w-32 overflow-hidden"
         >
           <Option
             setShowMobileMenu={setShowMobileMenu}
