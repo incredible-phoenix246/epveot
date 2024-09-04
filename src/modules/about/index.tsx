@@ -83,12 +83,12 @@ export const AboutUs = () => {
         <div className="flex flex-col mt-4 max-w-full w-[420px] max-md:mt-10">
           <div className="flex gap-5 items-center">
             <div className="self-stretch my-auto text-4xl leading-none text-gray-800">
-              Benjamin
+              ERNEST
             </div>
             <div className="flex shrink-0 self-stretch my-auto w-px bg-stone-300 h-[53px]" />
             <div className="flex flex-col self-stretch my-auto rounded-none w-[163px]">
               <div className="text-xl max-md:text-base font-extrabold text-blue-950 max-md:mr-2">
-                Benjamin Dowd
+                ERNEST CHIBUKE
               </div>
               <div className="mt-2 text-base font-medium text-amber-400">
                 Founder of Epveot
@@ -111,7 +111,7 @@ export const AboutUs = () => {
               href="tel:+031234567890"
               className="text-2xl font-extrabold leading-loose text-amber-400"
             >
-              (03) 123 456 7890
+              (+234) 8059149897
             </a>
           </div>
         </div>

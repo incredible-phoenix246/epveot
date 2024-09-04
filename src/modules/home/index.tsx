@@ -180,13 +180,11 @@ const ServiceCard = ({
   name,
   isActive,
   onClick,
-  key,
 }: {
   Icon: FC
   name: string
   isActive?: boolean
   onClick: () => void
-  key?: number
 }) => {
   return (
     <div className="flex flex-col grow shrink w-[177px]">
@@ -268,18 +266,13 @@ const ServicesCard = ({
   Icon,
   title,
   description,
-  key,
 }: {
-  key: number
   Icon: FC
   title: string
   description: string
 }) => {
   return (
-    <div
-      key={key}
-      className="flex flex-col grow shrink justify-center py-12 pr-9 pl-9 bg-brand-blue min-w-[240px] w-[306px] max-md:px-5"
-    >
+    <div className="flex flex-col grow shrink justify-center py-12 pr-9 pl-9 bg-brand-blue min-w-[240px] w-[306px] max-md:px-5">
       <div className="flex flex-col max-w-full w-[310px]">
         <div className="flex flex-col w-full max-md:items-center">
           <div className="object-contain w-12 aspect-square">
@@ -366,12 +359,12 @@ const ServicesSection = () => {
         <div className="flex flex-col items-center mt-9 w-full max-w-[1199px] max-md:max-w-full">
           <div className="flex flex-wrap gap-6 justify-center items-start w-full">
             {servicess.slice(0, 3).map((service, index) => (
-              <ServicesCard key={index} {...service} />
+              <ServicesCard key={service.title} {...service} />
             ))}
           </div>
           <div className="flex flex-wrap gap-6 justify-center items-start mt-7 w-full">
             {servicess.slice(3).map((service, index) => (
-              <ServicesCard key={index} {...service} />
+              <ServicesCard key={service.title} {...service} />
             ))}
           </div>
         </div>

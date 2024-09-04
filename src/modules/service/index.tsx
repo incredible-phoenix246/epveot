@@ -55,14 +55,14 @@ const ServiceCard = ({
 )
 
 const services: Service[] = [
-  { title: 'Telecom Installation and Repair' },
-  { title: 'Hosted PBX Solutions' },
+  { title: 'Quantity survey' },
+  { title: 'Estimations' },
   { title: 'Outdoor/Parking Lot Lighting' },
   { title: 'Outlets, Circuits and Rewiring' },
   { title: 'HID Lighting and Control' },
   { title: 'Lighting Design' },
-  { title: 'Motors and Transformers' },
-  { title: 'Isolated Computer Circuits' },
+  { title: 'Bill of Quality' },
+  { title: 'Real estate consulation' },
   { title: 'Data/Communications Cabling' },
   { title: 'Ballast/Lamp Replacing' },
 ]
@@ -136,7 +136,7 @@ export const HowWeWork = () => {
             tincidunt.
           </p>
         </div>
-        <div className="flex flex-wrap items-center justify-center gap-10 mt-20 w-full max-md:mt-10 max-md:max-w-full">
+        <div className="flex flex-wrap justify-center gap-10 mt-20 w-full max-md:mt-10 max-md:max-w-full">
           <div className="flex flex-col grow shrink items-center min-w-[240px] max-md:w-full w-[268px]">
             <div className="flex flex-col max-w-full text-xl font-bold text-blue-950 w-[335px]">
               {servicesq.map((service, index) => (
@@ -161,11 +161,13 @@ export const HowWeWork = () => {
                   Interdum et malesuada.
                 </p>
               </div>
-              <img
-                loading="lazy"
-                src="https://cdn.builder.io/api/v1/image/assets/TEMP/86c35cb0ad17881d2759a30cfdac9f6a2c0d14cea0a68737a18463a8ac56cda5?placeholderIfAbsent=true&apiKey=af97e94b909e4cdbb531b36fb1b19598"
-                alt="Our services illustration"
+
+              <Image
+                src="/servicew.png"
+                alt="new"
                 className="object-contain mt-8 w-full aspect-[1.62]"
+                width={326}
+                height={218}
               />
             </div>
             <ServiceList />
