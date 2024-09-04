@@ -48,7 +48,7 @@ const features = [
     text: 'Greate Technology',
   },
   {
-    text: '35 Years Experiance',
+    text: '7 Years Experiance',
   },
 ]
 

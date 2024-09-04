@@ -1,6 +1,5 @@
 'use client'
 import React from 'react'
-import * as Icon from '../Icons'
 import Link from 'next/link'
 import Image from 'next/image'
 import { motion } from 'framer-motion'
@@ -22,7 +21,7 @@ export const Footer = () => {
               </Link>
               <div className="py-8 text-center">
                 <h3 className="font-manrope text-3xl  text-copy dark:text-dark-copy font-bold mb-4">
-                  Solving Industrial Problems one at a time
+                  Solving General Building Problems one at a time
                 </h3>
                 <p className="text-copy-light dark:text-dark-copy-light">
                   We are focused on delivering solutions that will have a

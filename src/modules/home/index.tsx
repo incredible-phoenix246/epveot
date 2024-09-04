@@ -239,9 +239,8 @@ const ProfessionalServices = () => {
                 Professional Main Services
               </h1>
               <p className="mt-5 text-lg text-center max-md:max-w-full">
-                Pellentesque vehicula eros neque, maximus mattis est sagittis
-                Nulla facilisi. In sed pretium metus. Proin pretium id urna sit
-                amet tincidunt.
+                Good buildings come from good people, and all problems are
+                solved by good design.
               </p>
             </div>
             <div className="flex flex-wrap gap-8 justify-center items-start mt-8 w-full text-xl font-semibold whitespace-nowrap">
@@ -395,7 +394,7 @@ const ReasonItem = ({
     <Icon.CheckIvon />
     <div className="flex flex-col grow shrink min-w-[240px] w-[507px] max-md:max-w-full">
       <div className="text-xl font-bold text-brand-blue">{title}</div>
-      <div className="mt-1.5 text-lg text-zinc-500 max-md:max-w-full">
+      <div className="mt-1.5 text-base text-zinc-500 max-md:max-w-full">
         {description}
       </div>
     </div>
@@ -421,26 +420,26 @@ const Statistics = () => (
 
 const reasonsData = [
   {
-    title: '35 Years Experiance',
+    title: '7 Years Experiance',
     description:
-      'Pellentesque vehicula eros neque, maximus mattis est sagittis Nulla facilisi. In sed pretium',
+      'Choosing our company means partnering with a team that has consistently delivered excellent results for over 7 years. Our extensive experience has allowed us to refine our processes and build a reputation for quality, reliability, and customer satisfaction. We pride ourselves on our commitment to exceeding client expectations, whether through innovative solutions, meticulous craftsmanship, or exceptional service. Our track record speaks to our dedication and expertise, making us a trusted choice for your project.',
   },
   {
-    title: 'Excellencee Certificate',
+    title: 'Certificate earned ',
     description:
-      'Pellentesque vehicula eros neque, maximus mattis est sagittis Nulla facilisi. In sed pretium',
+      "Our company is distinguished by its commitment to excellence, as evidenced by the certifications we have earned over the years. These certifications, including [specific certifications relevant to your industry], attest to our adherence to industry standards and best practices. They reflect our team's expertise, our dedication to quality, and our commitment to staying current with the latest advancements and regulations. These credentials ensure that you receive top-notch service and confidence in the integrity of our work.",
   },
   {
     title: 'Affordable Price',
     description:
-      'Pellentesque vehicula eros neque, maximus mattis est sagittis Nulla facilisi. In sed pretium',
+      'Our company offers competitive pricing while maintaining the highest standards of quality. We understand that value is important, so we strive to deliver cost-effective solutions that meet your needs and budget. We provide detailed, transparent estimates and work with you to ensure there are no surprises throughout the project. Our goal is to offer exceptional service and results that provide long-term value and satisfaction for your investment.',
   },
 ]
 
 const Reasons = () => (
   <div className="flex flex-col max-w-full w-[643px] max-md:items-center max-md:text-center">
     <div className="flex flex-col w-full text-brand-blue">
-      <div className="flex flex-col justify-center md:self-start px-4 py-2 text-lg font-medium bg-brand-white min-h-[45px]">
+      <div className="flex flex-col justify-center md:self-start px-4 py-2 text-lg font-medium bg-white min-h-[45px]">
         <div className="flex gap-2.5 items-center max-md:justify-center min-h-[29px]">
           <div className="object-contain  my-auto aspect-square w-[22px]">
             <Icon.EditIcon />
@@ -462,8 +461,8 @@ const Reasons = () => (
 
 const WhyChooseUs = () => {
   return (
-    <main className="flex max-md:flex-col gap-10 items-center justify-center h-full container py-[20px] md:py-[40px] overflow-hidden">
-      <section className="flex flex-col self-stretch my-auto text-2xl min-w-[240px] w-[676px] max-md:max-w-full">
+    <main className="flex max-md:flex-col gap-10 container py-[20px] md:py-[40px] overflow-hidden">
+      <section className="flex flex-col my-auto text-2xl min-w-[240px] w-[676px] max-md:max-w-full">
         <div className="flex relative flex-col justify-center items-center  w-full">
           <Image
             src="/statimg.png"
@@ -768,8 +767,11 @@ const TestimonialSection = () => {
               <div className="object-contain shrink-0 self-stretch my-auto aspect-square w-[42px]">
                 <Icon.Phone />
               </div>
-              <a href="tel:+234123456789" className="self-stretch my-auto">
-                (234) 123 456 7890
+              <a
+                href="tel:+234123456789"
+                className="self-stretch my-auto text-lg"
+              >
+                (234) 80 591 149 897
               </a>
             </div>
           </div>

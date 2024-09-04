@@ -63,7 +63,7 @@ export const Navbar = () => {
             <Icon.PhoneIcon />
             <div className="flex flex-col gap-1">
               <span className="text-brand-blue font-unica">Call us</span>
-              <span className="text-brand-main">YourEmail@example.com</span>
+              <span className="text-brand-main">(234) 80 591 149 897</span>
             </div>
           </div>
         </div>
