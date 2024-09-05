@@ -155,7 +155,7 @@ export const ContactUsForm = () => {
           </h2>
         </div>
       </div>
-      <div className="md:w-[1199px]">
+      <div className="md:w-[1199px] max-md:px-2">
         <div className="flex max-md:flex-col gap-4 items-center w-full">
           {inputFields.slice(0, 2).map((field, index) => (
             <Input key={index} label={field.label} type={field.type} />

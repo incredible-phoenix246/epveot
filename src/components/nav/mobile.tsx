@@ -1,6 +1,6 @@
 import { FiEdit, FiTrash, FiShare, FiPlusSquare } from 'react-icons/fi'
 import { motion } from 'framer-motion'
-import { Dispatch, SetStateAction, useState } from 'react'
+import { Dispatch, SetStateAction } from 'react'
 import { IconType } from 'react-icons'
 import Link from 'next/link'
 import { cn } from '@/utils'
@@ -60,7 +60,7 @@ export const StaggeredDropDown = () => {
   )
 }
 
-const MotionLink = motion(Link)
+const MotionLink = motion.create(Link)
 
 const Option = ({
   text,
@@ -105,11 +105,6 @@ const wrapperVariants = {
   },
 }
 
-const iconVariants = {
-  open: { rotate: 180 },
-  closed: { rotate: 0 },
-}
-
 const itemVariants = {
   open: {
     opacity: 1,
@@ -125,9 +120,4 @@ const itemVariants = {
       when: 'afterChildren',
     },
   },
-}
-
-const actionIconVariants = {
-  open: { scale: 1, y: 0 },
-  closed: { scale: 0, y: -7 },
 }
