@@ -155,13 +155,13 @@ export const ContactUsForm = () => {
           </h2>
         </div>
       </div>
-      <div className=" w-[1199px]">
-        <div className="flex flex-wrap gap-4 items-start w-full max-md:max-w-full">
+      <div className="md:w-[1199px]">
+        <div className="flex max-md:flex-col gap-4 items-center w-full">
           {inputFields.slice(0, 2).map((field, index) => (
             <Input key={index} label={field.label} type={field.type} />
           ))}
         </div>
-        <div className="flex flex-wrap gap-4 items-start mt-9 w-full max-md:max-w-full">
+        <div className="flex gap-4 max-md:flex-col items-center mt-9 w-full">
           {inputFields.slice(2).map((field, index) => (
             <Input key={index + 2} label={field.label} type={field.type} />
           ))}
@@ -193,7 +193,7 @@ const Input = ({ label, type, fullWidth = false }: InputField) => {
     <div
       className={cn(
         'flex flex-col max-md:max-w-full',
-        fullWidth ? 'w-full' : 'grow shrink min-w-[240px] w-[468px]'
+        fullWidth ? 'w-full' : 'grow shrink min-w-[360px] w-[100%] md:w-[468px]'
       )}
     >
       <div className="px-4 py-4 bg-white border border-solid border-zinc-300 max-md:px-5 max-md:max-w-full">
