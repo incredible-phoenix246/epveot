@@ -54,6 +54,18 @@ export const StaggeredDropDown = () => {
             text="gallery"
             href="gallery/?path=gallery"
           />
+          <Option
+            setShowMobileMenu={setShowMobileMenu}
+            Icon={FiShare}
+            text="faq"
+            href="faq/?path=faq"
+          />
+          <Option
+            setShowMobileMenu={setShowMobileMenu}
+            Icon={FiShare}
+            text="team"
+            href="team/?path=team"
+          />
         </motion.ul>
       </motion.div>
     </>
