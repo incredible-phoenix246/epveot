@@ -32,12 +32,12 @@ export const faqs = [
   },
   {
     id: 3,
-    name: 'Joshua Chukwuebuka',
+    name: 'Priscilla',
     image: 'image23.jpg',
   },
   {
     id: 8,
-    name: 'Priscilla',
+    name: 'Joshua Chukwuebuka ',
     image: 'image166.jpg',
     position: 'Real estate consultant',
   },
@@ -56,11 +56,12 @@ export const faqs = [
     id: 6,
     name: 'VICTOR AGOZIE',
     image: 'image173.jpg',
+    position: 'Real estate consultant',
   },
 ]
 export const TeamSection = () => {
   return (
-    <section className="flex flex-col items-center w-full container py-20">
+    <section className="flex flex-col items-center w-full px-1 md:container py-20">
       <div className="flex flex-col items-center max-w-full w-[687px]">
         <div className="flex flex-col items-center max-w-full text-brand-blue">
           <div className="flex flex-col justify-center px-4 py-2 text-lg font-medium bg-brand-white  min-h-[45px]">
