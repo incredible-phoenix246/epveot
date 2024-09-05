@@ -34,12 +34,12 @@ export const faqs = [
     id: 3,
     name: 'Priscilla',
     image: 'image23.jpg',
+    position: 'Real estate consultant',
   },
   {
     id: 8,
     name: 'Joshua Chukwuebuka ',
     image: 'image166.jpg',
-    position: 'Real estate consultant',
   },
   {
     id: 4,
@@ -77,9 +77,9 @@ export const TeamSection = () => {
           </h2>
         </div>
         <p className="mt-5 text-lg text-center text-zinc-500 max-md:max-w-full">
-          Pellentesque vehicula eros neque, maximus mattis est sagittis Nulla
-          facilisi. In sed pretium metus. Proin pretium id urna sit amet
-          tincidunt.
+          An excellent work is very much achievable , when you have a team of
+          experts; which are professional in their field practically and
+          otherwise , with good teamwork and communication skills .
         </p>
       </div>
       <div className="flex flex-col w-full items-center justify-center mt-[40px] max-md:mt-[20px]">
