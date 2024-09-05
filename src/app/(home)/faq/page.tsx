@@ -1,13 +1,12 @@
 import React from 'react'
-import { Hero, FAQ } from '.'
-import { ContactUs } from './card'
+import { Hero, FAQ, ContactUsForm } from '.'
 
 const page = () => {
   return (
     <>
       <Hero />
       <FAQ />
-      <ContactUs />
+      <ContactUsForm />
     </>
   )
 }
