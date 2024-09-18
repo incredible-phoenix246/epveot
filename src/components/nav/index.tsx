@@ -87,7 +87,7 @@ export const Navbar = () => {
               )}
             >
               <Link
-                href={`${item.link}/?path=${item.link}`}
+                href={`/${item.link}/?path=${item.link}`}
                 onClick={() => {
                   setIsActive(item.link)
                 }}

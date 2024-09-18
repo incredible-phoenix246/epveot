@@ -350,9 +350,8 @@ const ServicesSection = () => {
             </h2>
           </div>
           <p className="mt-5 text-lg text-center text-zinc-500 max-md:max-w-full">
-            Pellentesque vehicula eros neque, maximus mattis est sagittis Nulla
-            facilisi. In sed pretium metus. Proin pretium id urna sit amet
-            tincidunt.
+            Building with precision, driven by passion. Your vision, our
+            expertise, crafted to perfection.
           </p>
         </div>
         <div className="flex flex-col items-center mt-9 w-full max-w-[1199px] max-md:max-w-full">
@@ -515,7 +514,7 @@ const workCardsData = [
   },
   {
     image: '/image.png',
-    name: 'Interior/Exterior Services',
+    name: 'Interior & Exterior Services',
     tags: ['House', 'Office'],
   },
   {
@@ -525,28 +524,23 @@ const workCardsData = [
   },
   {
     image: '/image.png',
-    name: 'Portfolio Website',
-    tags: ['Portfolio', 'Gatsby'],
+    name: 'Plumbing service',
+    tags: ['Plumbing'],
   },
   {
     image: '/image.png',
-    name: 'Project Management Tool',
-    tags: ['Project Management', 'React'],
+    name: 'Site Work',
+    tags: ['Site Work', 'Construction'],
   },
   {
     image: '/image.png',
-    name: 'Chat Application',
-    tags: ['Real-time', 'Chat'],
+    name: 'Form work',
+    tags: ['Form work'],
   },
   {
     image: '/image.png',
-    name: 'Fitness Tracker App',
-    tags: ['Fitness', 'Mobile'],
-  },
-  {
-    image: '/image.png',
-    name: 'Online Learning Platform',
-    tags: ['Learning', 'React'],
+    name: 'Building design',
+    tags: ['Design', 'Building'],
   },
 ]
 
@@ -639,12 +633,14 @@ const TestominialCard = ({
                     isMobile ? ' w-[40px]' : ' w-[70px]'
                   )}
                 >
-                  <Image
-                    src={image}
-                    alt={name}
-                    width={isMobile ? 40 : 70}
-                    height={isMobile ? 40 : 70}
-                  />
+                  <div
+                    className={cn(
+                      'rounded-full bg-brand-blue text-brand-white aspect-square items-center justify-center flex font-semibold text-[26px]',
+                      isMobile ? 'w-[40px]' : 'w-[70px]'
+                    )}
+                  >
+                    {name.charAt(0)}
+                  </div>
                 </div>
                 <div
                   className={cn(
@@ -695,6 +691,16 @@ const testimonials = [
     name: 'Pastor Olushola Ibidun',
     loc: 'Ag. Chaplain Protestant Chaplaincy, Nigeria Police Academy, Wudil - Kano',
     test: 'Engineer Ernest did his youth service with the Works department of the Nigeria Police Academy. In the course of his service, he became very noticeable to me as the Acting Chaplain of the Protestant Chaplaincy due to his commitment to Chapel activities. It was not difficult therefore to reckon with his suitability when the need to include a 500-seater capacity auditorium to the existing one arose. We sought for and got his release from the Director of works in Police Academy to help us with the design and construction of the 500 capacity auditorium. His proficiency saw the auditorium delivered within two months from design to completion. Engineer Ernest motivated all the workers at every stage through his direct participation, thereby eliminating any possible delay. With this experience, I can confidently vouch for his competency, motivational ability, and strength for great accomplishment in his chosen career of building engineering. Whosoever engages Engineer Ernest has got the right choice for his/her building construction.',
+  },
+  {
+    name: 'Mattias j',
+    loc: 'Electrical Engr Amc awka',
+    test: "I've worked closely with [Engr Ernest] at Epveot Construction Company, and I  can confidently say that their work as a building engineer is nothing short of exceptional. Their innovative approach to problem-solving and their ability to manage even the most challenging projects with ease is impressive. [Engr. Ernest] is not only technically proficient but also brings a collaborative spirit to every project, ensuring that the team is always aligned and focused on delivering high-quality results. Epveot Construction stands out in the industry, and a significant part of that is due to [Friend's Name]'s outstanding contributions.",
+  },
+  {
+    name: 'Orawusi Obiora',
+    loc: 'D.C works at the police academy wudil',
+    test: "I've had the privilege of seeing firsthand the incredible work that Engr Ernest has done as a building engineer at Epveot Construction Company. Their dedication  to excellence is truly remarkable. The projects they've led are a testament to their expertise, with every detail meticulously planned and executed. Whether it's ensuring structural integrity, optimizing designs, or managing complex constructions, [Engr Ernest] consistently delivers results that exceed expectations. Epveot Construction is fortunate to have such a skilled and passionate professional on their team.",
   },
 ]
 
