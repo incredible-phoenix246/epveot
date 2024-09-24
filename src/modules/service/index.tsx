@@ -131,9 +131,10 @@ export const HowWeWork = () => {
             </h2>
           </div>
           <p className="mt-5 text-lg text-center text-zinc-500 max-md:max-w-full">
-            Pellentesque vehicula eros neque, maximus mattis est sagittis Nulla
-            facilisi. In sed pretium metus. Proin pretium id urna sit amet
-            tincidunt.
+            At the heart of every great space is not just design and materials,
+            but the vision to transform an idea into a lasting reality. We
+            don&apos;t just build structure- we create enviroment that elevate
+            the way you live and work
           </p>
         </div>
         <div className="flex flex-wrap justify-center gap-10 mt-20 w-full max-md:mt-10 max-md:max-w-full">
@@ -156,9 +157,10 @@ export const HowWeWork = () => {
                   We can help you with the following services:
                 </h3>
                 <p className="mt-2.5 text-lg leading-7 text-zinc-500 max-md:max-w-full">
-                  Pellentesque vehicula eros neque, maximus mattisin sagittis
-                  Nulla facilisi. In sed pretium metus Proin pretium id urna
-                  Interdum et malesuada.
+                  Every Space tells a story weather it&apos;s the comfort of a
+                  well designed home ot the effecieny of a functional workspace.
+                  Our goal is to help you shape that story by offeringservices
+                  that bring your bision to the life and solve your unique needs
                 </p>
               </div>
 
