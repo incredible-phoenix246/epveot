@@ -491,7 +491,13 @@ const WorkCard = ({
   tags: string[]
 }) => (
   <div className="w-[330px] md:w-[400px] bg-white p-[21px] flex flex-col gap-4 items-center justify-center">
-    <Image src={image} alt={name} width={350} height={500} />
+    <Image
+      src={image}
+      alt={name}
+      width={350}
+      height={500}
+      className="max-h-[400px] object-cover min-h-[400px]"
+    />
     <h3 className="text-[25px] font-unica ">{name}</h3>
     <p className="text-[18px] text-gray-700">
       {tags.map((t) => (
@@ -508,37 +514,37 @@ const WorkCard = ({
 
 const workCardsData = [
   {
-    image: '/image.png',
+    image: '/eletriic.jpg',
     name: 'Electrical & Maintenance',
     tags: ['Instalation', 'Electric'],
   },
   {
-    image: '/image.png',
+    image: '/interiri.jpg',
     name: 'Interior & Exterior Services',
     tags: ['House', 'Office'],
   },
   {
-    image: '/image.png',
-    name: 'Electrical installation',
-    tags: ['Instalation '],
+    image: '/ark.jpeg',
+    name: 'Architectural Design',
+    tags: ['Architectural Design'],
   },
   {
-    image: '/image.png',
+    image: '/plumbing.jpg',
     name: 'Plumbing service',
     tags: ['Plumbing'],
   },
   {
-    image: '/image.png',
+    image: '/construction.jpg',
     name: 'Site Work',
     tags: ['Site Work', 'Construction'],
   },
   {
-    image: '/image.png',
+    image: '/form-work.jpg',
     name: 'Form work',
     tags: ['Form work'],
   },
   {
-    image: '/image.png',
+    image: '/building-design.jpg',
     name: 'Building design',
     tags: ['Design', 'Building'],
   },
@@ -594,7 +600,7 @@ const RecentWorks = () => {
               {workCardsData.map((card, index) => (
                 <SwiperSlide key={index} data-testid="testimonial-card">
                   <WorkCard
-                    image={'/Image.png'}
+                    image={card.image}
                     name={card.name}
                     tags={card.tags}
                   />
