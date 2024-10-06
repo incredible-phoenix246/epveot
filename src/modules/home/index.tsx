@@ -284,9 +284,11 @@ const ServicesCard = ({
             </p>
           </div>
         </div>
-        <button className="mt-8 text-lg font-semibold text-white">
-          Read More
-        </button>
+        <Link href="/services/2">
+          <button className="mt-8 text-lg font-semibold text-white">
+            Read More
+          </button>
+        </Link>
       </div>
     </div>
   )
