@@ -2,6 +2,7 @@ import { Button } from '@/components/ui/button'
 import { Card, CardContent } from '@/components/ui/card'
 import { Clock, Download, Zap } from 'lucide-react'
 import Image from 'next/image'
+import { TeamSection } from '../../team'
 
 export default function ElectricalServices() {
   return (
@@ -108,29 +109,6 @@ export default function ElectricalServices() {
                 </li>
               ))}
             </ul>
-
-            <h2 className="text-xl font-bold mb-4">Our Experts Team</h2>
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
-              {[
-                { name: 'Gavin Avery', role: 'Engineer' },
-                { name: 'Nathan Tucker', role: 'Engineer' },
-                { name: 'Sarrah Albert', role: 'Engineer' },
-              ].map((expert, index) => (
-                <Card key={index}>
-                  <CardContent className="p-4 text-center">
-                    <Image
-                      src={`/placeholder.svg?height=100&width=100&text=${expert.name}`}
-                      alt={expert.name}
-                      width={100}
-                      height={100}
-                      className="w-24 h-24 rounded-full mx-auto mb-2"
-                    />
-                    <h3 className="font-semibold">{expert.name}</h3>
-                    <p className="text-sm text-gray-600">{expert.role}</p>
-                  </CardContent>
-                </Card>
-              ))}
-            </div>
           </section>
         </div>
       </main>
